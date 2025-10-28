@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  /* Primary Color - Turuncu */
+  --color-primary: #e54413;
+  --color-primary-50: #fef2ee;
+  --color-primary-100: #fce5dd;
+  --color-primary-200: #f9cbbb;
+  --color-primary-300: #f6b099;
+  --color-primary-400: #f39677;
+  --color-primary-500: #e54413;
+  --color-primary-600: #b7360f;
+  --color-primary-700: #89280b;
+  --color-primary-800: #5c1b07;
+  --color-primary-900: #2e0d04;
+  --color-primary-foreground: #ffffff;
+
+  /* Secondary Color - Mor */
+  --color-secondary: #562281;
+  --color-secondary-50: #f5f0fa;
+  --color-secondary-100: #ebe0f5;
+  --color-secondary-200: #d7c1eb;
+  --color-secondary-300: #c3a2e1;
+  --color-secondary-400: #af83d7;
+  --color-secondary-500: #562281;
+  --color-secondary-600: #451b67;
+  --color-secondary-700: #34144d;
+  --color-secondary-800: #220e34;
+  --color-secondary-900: #11071a;
+  --color-secondary-foreground: #ffffff;
+
+  /* Base Colors */
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+  --color-muted: #f4f4f5;
+  --color-muted-foreground: #71717a;
+  --color-border: #e4e4e7;
+  --color-input: #e4e4e7;
+  --color-ring: #e54413;
+
+  /* Card */
+  --color-card: #ffffff;
+  --color-card-foreground: #171717;
+
+  /* Popover */
+  --color-popover: #ffffff;
+  --color-popover-foreground: #171717;
+
+  /* Accent */
+  --color-accent: #f4f4f5;
+  --color-accent-foreground: #171717;
+
+  /* Destructive */
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+
+  /* Radius */
+  --radius: 0.5rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+}
+
+body {
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Custom Utilities */
+.hero-overlay {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(86, 34, 129, 0.6) 50%, rgba(229, 68, 19, 0.5) 100%);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
