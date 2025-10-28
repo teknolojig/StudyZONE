@@ -64,9 +64,7 @@ export default function WorkTravelPage() {
                 Amerika seni bekliyor!
               </p>
               <p>
-                2025 kontenjanları doldu, şimdi 2026 yazı için harekete geç.
-                <br />
-                Çalış, gez, kazan!
+                2025 kontenjanları doldu, şimdi 2026 yazı için harekete geç. Çalış, gez, kazan!
               </p>
             </div>
 
@@ -97,6 +95,10 @@ export default function WorkTravelPage() {
                 NEDEN KATILMALISINIZ?
               </h2>
 
+              <p className="text-gray-700 text-base mb-6 leading-relaxed">
+                Work and Travel her üniversite öğrencisinin en az bir kez yaşaması gereken eşsiz fırsatlarla dolu, unutulmayacak bir deneyimdir!
+              </p>
+
               <div className="space-y-2 mb-6">
                 {reasons.map((reason, index) => (
                   <div
@@ -107,25 +109,6 @@ export default function WorkTravelPage() {
                     <span className="text-gray-700 text-sm">{reason}</span>
                   </div>
                 ))}
-              </div>
-
-              <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl p-5 border-l-4 border-primary mb-4">
-                <h3 className="text-base font-bold text-gray-900 mb-2">
-                  Erken Kayıt Fırsatı!
-                </h3>
-                <p className="text-gray-700 text-sm mb-2">
-                  <span className="text-primary font-bold">2026 işleri ve kayıt işlemleriyle ilgili bilgi almak için hemen formu doldurun!</span>
-                </p>
-                <p className="text-xs text-gray-600">
-                  Tecrübeli danışmanlarımız size yardımcı olmaktan mutluluk duyacaktır.
-                </p>
-              </div>
-
-              <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
-                <p className="text-sm text-gray-700">
-                  <span className="font-semibold">Acele edin, fırsatı kaçırmayın!</span><br/>
-                  Kontenjanlar sınırlıdır. Erken başvuru yaparak yerinizi garantileyin.
-                </p>
               </div>
             </div>
 
