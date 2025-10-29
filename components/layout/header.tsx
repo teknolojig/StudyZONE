@@ -29,52 +29,52 @@ export function Header() {
   const menuItems = [
     {
       label: "Dil Okulu",
-      href: "/dil-okulu",
+      href: "#",
       submenu: [
         {
           category: "Ülkeler",
           items: [
-            { label: "Amerika", href: "/dil-okulu/amerika" },
-            { label: "Avustralya", href: "/dil-okulu/avustralya" },
-            { label: "İngiltere", href: "/dil-okulu/ingiltere" },
-            { label: "İrlanda", href: "/dil-okulu/irlanda" },
-            { label: "Kanada", href: "/dil-okulu/kanada" },
-            { label: "Malta", href: "/dil-okulu/malta" },
+            { label: "Amerika", href: "#" },
+            { label: "Avustralya", href: "#" },
+            { label: "İngiltere", href: "#" },
+            { label: "İrlanda", href: "#" },
+            { label: "Kanada", href: "#" },
+            { label: "Malta", href: "#" },
           ]
         },
         {
           category: "Okullar",
           items: [
-            { label: "EC English", href: "/dil-okulu/ec-english" },
-            { label: "ELS", href: "/dil-okulu/els" },
-            { label: "ESE", href: "/dil-okulu/ese" },
-            { label: "ILAC", href: "/dil-okulu/ilac" },
-            { label: "KAPLAN INTERNATIONAL", href: "/dil-okulu/kaplan" },
-            { label: "Kings Colleges", href: "/dil-okulu/kings" },
-            { label: "St Giles", href: "/dil-okulu/st-giles" },
-            { label: "Tüm Okullar", href: "/dil-okulu/okullar", variant: "style1" },
+            { label: "EC English", href: "#" },
+            { label: "ELS", href: "#" },
+            { label: "ESE", href: "#" },
+            { label: "ILAC", href: "#" },
+            { label: "KAPLAN INTERNATIONAL", href: "#" },
+            { label: "Kings Colleges", href: "#" },
+            { label: "St Giles", href: "#" },
+            { label: "Tüm Okullar", href: "#", variant: "style1" },
           ]
         },
         {
           category: "Programlar",
           items: [
-            { label: "Genel İngilizce", href: "/dil-okulu/genel-ingilizce" },
-            { label: "Yoğun İngilizce", href: "/dil-okulu/yogun-ingilizce" },
-            { label: "Akademik İngilizce", href: "/dil-okulu/akademik-ingilizce" },
-            { label: "İş İngilizcesi", href: "/dil-okulu/is-ingilizcesi" },
-            { label: "Hukuk İngilizcesi", href: "/dil-okulu/hukuk-ingilizcesi" },
-            { label: "IELTS ve TOEFL Hazırlık", href: "/dil-okulu/ielts-toefl" },
+            { label: "Genel İngilizce", href: "#" },
+            { label: "Yoğun İngilizce", href: "#" },
+            { label: "Akademik İngilizce", href: "#" },
+            { label: "İş İngilizcesi", href: "#" },
+            { label: "Hukuk İngilizcesi", href: "#" },
+            { label: "IELTS ve TOEFL Hazırlık", href: "#" },
           ]
         },
         {
           category: "Dil Okulu Hakkında",
           items: [
-            { label: "Neden StudyZONE ?", href: "/dil-okulu/neden-studyzone" },
-            { label: "Ücretsiz Hizmetlerimiz", href: "/dil-okulu/hizmetlerimiz" },
-            { label: "2025 Fiyat Listesi", href: "/dil-okulu/fiyat-listesi" },
-            { label: "Referanslarımız", href: "/dil-okulu/referanslar" },
-            { label: "Sıkça Sorulan Sorular", href: "/dil-okulu/sss" },
-            { label: "8 Adımda Yurtdışında Dil Okulu", href: "/dil-okulu/8-adim" },
+            { label: "Neden StudyZONE ?", href: "#" },
+            { label: "Ücretsiz Hizmetlerimiz", href: "#" },
+            { label: "2025 Fiyat Listesi", href: "#" },
+            { label: "Referanslarımız", href: "#" },
+            { label: "Sıkça Sorulan Sorular", href: "#" },
+            { label: "8 Adımda Yurtdışında Dil Okulu", href: "#" },
           ]
         },
         {
@@ -85,54 +85,54 @@ export function Header() {
     },
     {
       label: "Yaz Okulu",
-      href: "/yaz-okulu",
+      href: "#",
       submenu: [
         {
           category: "Ülkeler",
           items: [
-            { label: "Almanya", href: "/yaz-okulu/almanya" },
-            { label: "Amerika", href: "/yaz-okulu/amerika" },
-            { label: "Fransa", href: "/yaz-okulu/fransa" },
-            { label: "İngiltere", href: "/yaz-okulu/ingiltere" },
-            { label: "İrlanda", href: "/yaz-okulu/irlanda" },
-            { label: "İspanya", href: "/yaz-okulu/ispanya" },
-            { label: "Kanada", href: "/yaz-okulu/kanada" },
-            { label: "Malta", href: "/yaz-okulu/malta" },
+            { label: "Almanya", href: "#" },
+            { label: "Amerika", href: "#" },
+            { label: "Fransa", href: "#" },
+            { label: "İngiltere", href: "#" },
+            { label: "İrlanda", href: "#" },
+            { label: "İspanya", href: "#" },
+            { label: "Kanada", href: "#" },
+            { label: "Malta", href: "#" },
           ]
         },
         {
           category: "Okullar",
           items: [
-            { label: "EC English", href: "/yaz-okulu/ec-english" },
-            { label: "Emerald Cultural Institute", href: "/yaz-okulu/emerald" },
-            { label: "ILAC", href: "/yaz-okulu/ilac" },
-            { label: "Kaplan International", href: "/yaz-okulu/kaplan" },
-            { label: "Kings Education", href: "/yaz-okulu/kings" },
-            { label: "St Giles", href: "/yaz-okulu/st-giles" },
-            { label: "Stafford House", href: "/yaz-okulu/stafford-house" },
-            { label: "Tüm Okullar", href: "/yaz-okulu/okullar", variant: "style1" },
+            { label: "EC English", href: "#" },
+            { label: "Emerald Cultural Institute", href: "#" },
+            { label: "ILAC", href: "#" },
+            { label: "Kaplan International", href: "#" },
+            { label: "Kings Education", href: "#" },
+            { label: "St Giles", href: "#" },
+            { label: "Stafford House", href: "#" },
+            { label: "Tüm Okullar", href: "#", variant: "style1" },
           ]
         },
         {
           category: "Programlar",
           items: [
-            { label: "Genel Yaz Okulu", href: "/yaz-okulu/genel" },
-            { label: "Akademik Yaz Okulu", href: "/yaz-okulu/akademik" },
-            { label: "Spor Yaz Okulu", href: "/yaz-okulu/spor" },
-            { label: "Sanat Yaz Okulu", href: "/yaz-okulu/sanat" },
+            { label: "Genel Yaz Okulu", href: "#" },
+            { label: "Akademik Yaz Okulu", href: "#" },
+            { label: "Spor Yaz Okulu", href: "#" },
+            { label: "Sanat Yaz Okulu", href: "#" },
           ]
         },
         {
           category: "Yaz Okulu Hakkında",
           items: [
-            { label: "Değerli Velilere Mektup", href: "/yaz-okulu/velilere-mektup" },
-            { label: "Neden StudyZONE ?", href: "/yaz-okulu/neden-studyzone" },
-            { label: "Ücretsiz Hizmetlerimiz", href: "/yaz-okulu/hizmetlerimiz" },
-            { label: "Yaz Okulu Programı Nedir ?", href: "/yaz-okulu/program-nedir" },
-            { label: "Neden Mutlaka Katılmalısınız ?", href: "/yaz-okulu/neden-katilmali" },
-            { label: "Sıkça Sorulan Sorular", href: "/yaz-okulu/sss" },
-            { label: "11 Adımda Yurtdışında Yaz Okulu", href: "/yaz-okulu/11-adim" },
-            { label: "Erken Kayıt Neden Çok Önemli ?", href: "/yaz-okulu/erken-kayit" },
+            { label: "Değerli Velilere Mektup", href: "#" },
+            { label: "Neden StudyZONE ?", href: "#" },
+            { label: "Ücretsiz Hizmetlerimiz", href: "#" },
+            { label: "Yaz Okulu Programı Nedir ?", href: "#" },
+            { label: "Neden Mutlaka Katılmalısınız ?", href: "#" },
+            { label: "Sıkça Sorulan Sorular", href: "#" },
+            { label: "11 Adımda Yurtdışında Yaz Okulu", href: "#" },
+            { label: "Erken Kayıt Neden Çok Önemli ?", href: "#" },
           ]
         },
         {
@@ -143,44 +143,44 @@ export function Header() {
     },
     {
       label: "Üniversite",
-      href: "/universite",
+      href: "#",
       submenu: [
         {
           category: "Ülkeler",
           items: [
-            { label: "Almanya", href: "/universite/almanya" },
-            { label: "Amerika", href: "/universite/amerika" },
-            { label: "Avustralya", href: "/universite/avustralya" },
-            { label: "Çekya", href: "/universite/cekya" },
-            { label: "İngiltere", href: "/universite/ingiltere" },
-            { label: "Kanada", href: "/universite/kanada" },
-            { label: "Macaristan", href: "/universite/macaristan" },
-            { label: "Polonya", href: "/universite/polonya" },
+            { label: "Almanya", href: "#" },
+            { label: "Amerika", href: "#" },
+            { label: "Avustralya", href: "#" },
+            { label: "Çekya", href: "#" },
+            { label: "İngiltere", href: "#" },
+            { label: "Kanada", href: "#" },
+            { label: "Macaristan", href: "#" },
+            { label: "Polonya", href: "#" },
           ]
         },
         {
           category: "Üniversite Hakkında",
           items: [
-            { label: "Değerli Velilere Mektup", href: "/universite/velilere-mektup" },
-            { label: "Yurtdışı – Türkiye Karşılaştırması", href: "/universite/karsilastirma" },
-            { label: "Ülke Maliyet Karşılaştırması", href: "/universite/maliyet-karsilastirma" },
-            { label: "Neden StudyZONE ?", href: "/universite/neden-studyzone" },
-            { label: "Hizmetlerimiz", href: "/universite/hizmetlerimiz" },
-            { label: "Referanslarımız", href: "/universite/referanslar" },
-            { label: "8 Adımda Yurtdışında Üniversite", href: "/universite/8-adim" },
-            { label: "YÖK Denklik Yönetmeliği", href: "/universite/yok-denklik" },
-            { label: "Sıkça Sorulan Sorular", href: "/universite/sss" },
+            { label: "Değerli Velilere Mektup", href: "#" },
+            { label: "Yurtdışı – Türkiye Karşılaştırması", href: "#" },
+            { label: "Ülke Maliyet Karşılaştırması", href: "#" },
+            { label: "Neden StudyZONE ?", href: "#" },
+            { label: "Hizmetlerimiz", href: "#" },
+            { label: "Referanslarımız", href: "#" },
+            { label: "8 Adımda Yurtdışında Üniversite", href: "#" },
+            { label: "YÖK Denklik Yönetmeliği", href: "#" },
+            { label: "Sıkça Sorulan Sorular", href: "#" },
           ]
         }
       ],
     },
     {
       label: "Master",
-      href: "/master",
+      href: "#",
     },
     {
       label: "Sertifika ve Diploma",
-      href: "/sertifika-ve-diploma",
+      href: "#",
     },
     {
       label: "Work & Travel",

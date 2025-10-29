@@ -100,32 +100,32 @@ export function Footer() {
             <h3 className="text-white text-lg font-bold mb-4 uppercase">Kurumsal</h3>
             <ul className="space-y-2.5">
               <li>
-                <Link href="/hakkimizda" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Hakkımızda
                 </Link>
               </li>
               <li>
-                <Link href="/degerlerimiz" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Değerlerimiz
                 </Link>
               </li>
               <li>
-                <Link href="/akreditasyonlarimiz" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Akreditasyonlarımız
                 </Link>
               </li>
               <li>
-                <Link href="/referanslarimiz" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Referanslarımız
                 </Link>
               </li>
               <li>
-                <Link href="/insan-kaynaklari" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                   İnsan Kaynakları
                 </Link>
               </li>
               <li>
-                <Link href="/iletisim" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                   İletişim
                 </Link>
               </li>
@@ -137,27 +137,27 @@ export function Footer() {
             <h3 className="text-white text-lg font-bold mb-4 uppercase">Servislerimiz</h3>
             <ul className="space-y-2.5">
               <li>
-                <Link href="/yurtdisinda-dil-okulu" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Yurtdışında Dil Okulu
                 </Link>
               </li>
               <li>
-                <Link href="/yurtdisinda-yaz-okulu" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Yurtdışında Yaz Okulu
                 </Link>
               </li>
               <li>
-                <Link href="/yurtdisinda-universite" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Yurtdışında Üniversite
                 </Link>
               </li>
               <li>
-                <Link href="/yurtdisinda-master" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Yurtdışında Master
                 </Link>
               </li>
               <li>
-                <Link href="/yurtdisinda-sertifika" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Yurtdışında Sertifika
                 </Link>
               </li>
@@ -174,32 +174,32 @@ export function Footer() {
             <h3 className="text-white text-lg font-bold mb-4 uppercase">Müşteri Memnuniyeti</h3>
             <ul className="space-y-2.5">
               <li>
-                <Link href="/musteri-memnuniyeti" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Müşteri Memnuniyeti
                 </Link>
               </li>
               <li>
-                <Link href="/musteri-memnuniyeti-anayasasi" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Müşteri Memnuniyeti Anayasası
                 </Link>
               </li>
               <li>
-                <Link href="/hakli-musteri-hatti" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Haklı Müşteri Hattı
                 </Link>
               </li>
               <li>
-                <Link href="/sikayetim-var" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Şikayetim Var
                 </Link>
               </li>
               <li>
-                <Link href="/sikayetlerin-degerlendirilmesi" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Şikayetlerin Değerlendirilmesi
                 </Link>
               </li>
               <li>
-                <Link href="/sikayet-ve-oneri-formu" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Şikayet ve Öneri Formu
                 </Link>
               </li>

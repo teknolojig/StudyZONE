@@ -3,12 +3,12 @@ import Link from "next/link";
 
 export function Topbar() {
   const topLinks = [
-    { href: "/hakkimizda", label: "Hakkımızda" },
-    { href: "/degerlerimiz", label: "Değerlerimiz" },
-    { href: "/musteri-memnuniyeti", label: "Müşteri Memnuniyeti" },
-    { href: "/akreditasyonlarimiz", label: "Akreditasyonlarımız" },
-    { href: "/referanslarimiz", label: "Referanslarımız" },
-    { href: "/iletisim", label: "İletişim" },
+    { href: "#", label: "Hakkımızda" },
+    { href: "#", label: "Değerlerimiz" },
+    { href: "#", label: "Müşteri Memnuniyeti" },
+    { href: "#", label: "Akreditasyonlarımız" },
+    { href: "#", label: "Referanslarımız" },
+    { href: "#", label: "İletişim" },
   ];
 
   return (
