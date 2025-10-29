@@ -12,7 +12,7 @@ export function Topbar() {
   ];
 
   return (
-    <div className="absolute top-0 left-0 right-0 z-40 py-2 px-4">
+    <div className="hidden lg:block absolute top-0 left-0 right-0 z-40 py-2 px-4">
       <div className="container mx-auto flex flex-wrap items-center justify-between text-sm text-white">
         <nav className="hidden md:flex items-center gap-4">
           {topLinks.map((link) => (

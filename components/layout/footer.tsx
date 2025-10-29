@@ -1,12 +1,32 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
+import { Phone, Instagram, Facebook, Linkedin, Youtube, Headphones, Edit } from "lucide-react";
+import { InfoFormModal } from "@/components/forms/info-form-modal";
+import { CallMeModal } from "@/components/forms/call-me-modal";
+import { CallNowModal } from "@/components/forms/call-now-modal";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const [isFormModalOpen, setIsFormModalOpen] = useState(false);
+  const [isCallMeModalOpen, setIsCallMeModalOpen] = useState(false);
+  const [isCallNowModalOpen, setIsCallNowModalOpen] = useState(false);
+
+  const handleCallNowClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    // Only show modal on desktop, on mobile make phone call
+    if (window.innerWidth >= 1024) {
+      setIsCallNowModalOpen(true);
+    } else {
+      // On mobile, trigger phone call
+      window.location.href = 'tel:+902129700070';
+    }
+  };
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="text-gray-300 bg-footer-dark">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Logo and Description */}
@@ -40,7 +60,7 @@ export function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-pink-500/20 hover:bg-pink-500/30 text-pink-400 p-2.5 rounded-full transition-colors"
+                className="bg-white/10 hover:bg-white/20 text-white p-2.5 rounded-full transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -49,7 +69,7 @@ export function Footer() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 p-2.5 rounded-full transition-colors"
+                className="bg-white/10 hover:bg-white/20 text-white p-2.5 rounded-full transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
@@ -58,7 +78,7 @@ export function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-600/20 hover:bg-blue-600/30 text-blue-500 p-2.5 rounded-full transition-colors"
+                className="bg-white/10 hover:bg-white/20 text-white p-2.5 rounded-full transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
@@ -67,7 +87,7 @@ export function Footer() {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-red-500/20 hover:bg-red-500/30 text-red-400 p-2.5 rounded-full transition-colors"
+                className="bg-white/10 hover:bg-white/20 text-white p-2.5 rounded-full transition-colors"
                 aria-label="YouTube"
               >
                 <Youtube className="w-5 h-5" />
@@ -189,13 +209,74 @@ export function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="border-t border-gray-800">
+      <div className="border-t border-[#1a2332]">
         <div className="container mx-auto px-4 py-6">
           <p className="text-center text-sm text-gray-400">
             © {currentYear} StudyZONE International. Tüm hakları saklıdır.
           </p>
         </div>
       </div>
+
+      {/* Floating Action Buttons */}
+      <div className="fixed bottom-0 left-0 right-0 z-50">
+        <div className="lg:container lg:mx-auto lg:px-4">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-0">
+            {/* Bilgi Formu - Always visible */}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsFormModalOpen(true);
+              }}
+              className="flex items-center justify-center gap-2 bg-secondary hover:brightness-110 text-white font-bold px-4 py-4 transition-all duration-300 shadow-lg group cursor-pointer"
+            >
+              <Edit className="w-5 h-5 animate-pulse group-hover:scale-110 transition-transform" />
+              <span className="whitespace-nowrap text-sm md:text-base animate-pulse">BİLGİ FORMU</span>
+            </button>
+
+            {/* Biz Sizi Arayalım - Hidden on mobile */}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsCallMeModalOpen(true);
+              }}
+              className="hidden lg:flex items-center justify-center gap-2 bg-primary hover:brightness-110 text-white font-bold px-4 py-4 transition-all duration-300 shadow-lg group cursor-pointer"
+            >
+              <Headphones className="w-5 h-5 animate-pulse group-hover:scale-110 transition-transform" />
+              <span className="whitespace-nowrap text-sm md:text-base animate-pulse">BİZ SİZİ ARAYALIM</span>
+            </button>
+
+            {/* Hemen Arayın - Always visible, modal on desktop, direct call on mobile */}
+            <button
+              type="button"
+              onClick={handleCallNowClick}
+              className="flex items-center justify-center gap-2 bg-green-500 hover:brightness-110 text-white font-bold px-4 py-4 transition-all duration-300 shadow-lg group cursor-pointer"
+            >
+              <Phone className="w-5 h-5 animate-pulse group-hover:scale-110 transition-transform" />
+              <span className="whitespace-nowrap text-sm md:text-base animate-pulse">HEMEN ARAYIN</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Info Form Modal */}
+      <InfoFormModal
+        isOpen={isFormModalOpen}
+        onClose={() => setIsFormModalOpen(false)}
+      />
+
+      {/* Call Me Modal */}
+      <CallMeModal
+        isOpen={isCallMeModalOpen}
+        onClose={() => setIsCallMeModalOpen(false)}
+      />
+
+      {/* Call Now Modal - Desktop only */}
+      <CallNowModal
+        isOpen={isCallNowModalOpen}
+        onClose={() => setIsCallNowModalOpen(false)}
+      />
     </footer>
   );
 }

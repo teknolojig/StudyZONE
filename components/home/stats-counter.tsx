@@ -18,25 +18,25 @@ export function StatsCounter() {
       value: 28,
       suffix: "",
       label: "Yıllık Tecrübe",
-      color: "from-cyan-400 to-cyan-500"
+      color: "from-cyan-500 to-teal-600"
     },
     {
       value: 31584,
       suffix: "",
       label: "Toplam Öğrenci",
-      color: "from-cyan-400 to-cyan-500"
+      color: "from-cyan-500 to-teal-600"
     },
     {
       value: 366,
       suffix: "",
       label: "İşveren",
-      color: "from-cyan-400 to-cyan-500"
+      color: "from-cyan-500 to-teal-600"
     },
     {
       value: 97,
       suffix: "%",
       label: "Vize Başarısı",
-      color: "from-cyan-400 to-cyan-500"
+      color: "from-cyan-500 to-teal-600"
     }
   ];
 
@@ -92,23 +92,38 @@ export function StatsCounter() {
   return (
     <section
       ref={sectionRef}
-      className="py-12 md:py-16 bg-white border-t border-b border-gray-200"
+      className="relative py-16 md:py-24 bg-white overflow-hidden"
     >
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+      {/* Subtle decorative elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal-600 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="text-center group"
+              className="relative group"
             >
-              {/* Number */}
-              <div className={`text-4xl md:text-5xl lg:text-6xl font-black mb-3 bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
-                <Counter value={stat.value} suffix={stat.suffix} />
-              </div>
+              {/* Card */}
+              <div className="relative bg-gray-50 border-2 border-gray-100 rounded-2xl p-6 md:p-8 transition-all duration-300 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-100/50 hover:-translate-y-1">
+                {/* Content */}
+                <div className="text-center">
+                  {/* Number */}
+                  <div className="text-5xl md:text-6xl lg:text-7xl font-black mb-3 bg-gradient-to-br from-cyan-500 to-teal-600 bg-clip-text text-transparent">
+                    <Counter value={stat.value} suffix={stat.suffix} />
+                  </div>
 
-              {/* Label */}
-              <div className="text-gray-700 font-semibold text-sm md:text-base">
-                {stat.label}
+                  {/* Label */}
+                  <div className="text-gray-700 font-bold text-sm md:text-base tracking-wide uppercase">
+                    {stat.label}
+                  </div>
+                </div>
+
+                {/* Bottom accent line */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 to-teal-600 rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
               </div>
             </div>
           ))}

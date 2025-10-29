@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { Quote, Star } from "lucide-react";
+import { Quote, Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface Testimonial {
   id: number;
@@ -120,12 +120,60 @@ const testimonials: Testimonial[] = [
 
 export function TestimonialsCarousel() {
   const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
+  const [isSwiping, setIsSwiping] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const itemsPerPage = 3;
-  const totalPages = Math.ceil(testimonials.length / itemsPerPage);
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
 
-  const toggleExpand = (id: number) => {
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    setIsSwiping(false);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+    const diff = Math.abs(touchStartX.current - touchEndX.current);
+    if (diff > 10) {
+      setIsSwiping(true);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (!isSwiping) return;
+
+    const diff = touchStartX.current - touchEndX.current;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+    setIsSwiping(false);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const toggleExpand = (id: number, e: React.MouseEvent) => {
+    e.stopPropagation();
     setExpandedCards(prev => {
       const newSet = new Set(prev);
       if (newSet.has(id)) {
@@ -137,18 +185,27 @@ export function TestimonialsCarousel() {
     });
   };
 
-  const getCurrentTestimonials = () => {
-    const start = currentPage * itemsPerPage;
-    return testimonials.slice(start, start + itemsPerPage);
+  const getVisibleTestimonials = () => {
+    if (isMobile) {
+      return [testimonials[currentIndex]];
+    }
+    // Desktop: show 3 cards starting from currentIndex
+    const visible = [];
+    for (let i = 0; i < 3; i++) {
+      visible.push(testimonials[(currentIndex + i) % testimonials.length]);
+    }
+    return visible;
   };
 
   useEffect(() => {
+    if (isHovered) return; // Don't auto-advance when hovered
+
     const interval = setInterval(() => {
-      setCurrentPage((prev) => (prev + 1) % totalPages);
+      nextSlide();
     }, 6000);
 
     return () => clearInterval(interval);
-  }, [totalPages]);
+  }, [isHovered]);
 
   return (
     <section className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-gray-100">
@@ -164,18 +221,45 @@ export function TestimonialsCarousel() {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {getCurrentTestimonials().map((testimonial) => {
+        <div
+          className="max-w-7xl mx-auto relative"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          {...(isMobile ? {
+            onTouchStart: handleTouchStart,
+            onTouchMove: handleTouchMove,
+            onTouchEnd: handleTouchEnd
+          } : {})}
+        >
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 bg-white hover:bg-[#01bbde] text-gray-700 hover:text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 group"
+            aria-label="Previous testimonials"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 bg-white hover:bg-[#01bbde] text-gray-700 hover:text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 group"
+            aria-label="Next testimonials"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-700 ease-in-out">
+            {getVisibleTestimonials().map((testimonial, index) => {
               const isExpanded = expandedCards.has(testimonial.id);
 
               return (
                 <div
                   key={testimonial.id}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group"
+                  className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 ease-in-out overflow-hidden group animate-in fade-in slide-in-from-bottom-4"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {/* Card Body */}
-                  <div className="p-6">
+                  <div className="p-6 flex flex-col h-full">
                     {/* Quote Icon and Stars */}
                     <div className="flex justify-between items-start mb-4">
                       <Quote className="w-10 h-10 text-[#01bbde]/20 flex-shrink-0" />
@@ -195,12 +279,16 @@ export function TestimonialsCarousel() {
                     </div>
 
                     {/* Testimonial Text */}
-                    <div className="mb-4 min-h-[160px]">
-                      <p className="text-gray-700 text-sm leading-relaxed">
-                        {isExpanded ? testimonial.fullText : testimonial.shortText}
-                      </p>
+                    <div className="mb-4 flex-grow">
+                      <div className={`transition-all duration-700 ease-in-out overflow-hidden ${
+                        isExpanded ? '' : 'line-clamp-3'
+                      }`}>
+                        <p className="text-gray-700 text-sm leading-relaxed">
+                          {isExpanded ? testimonial.fullText : testimonial.shortText}
+                        </p>
+                      </div>
                       <button
-                        onClick={() => toggleExpand(testimonial.id)}
+                        onClick={(e) => toggleExpand(testimonial.id, e)}
                         className="text-[#01bbde] text-sm font-bold mt-3 hover:underline transition-all inline-block"
                       >
                         {isExpanded ? "Daralt" : "Devamı"}
@@ -246,16 +334,16 @@ export function TestimonialsCarousel() {
 
           {/* Navigation Dots */}
           <div className="flex justify-center gap-3 mt-10">
-            {[...Array(totalPages)].map((_, index) => (
+            {testimonials.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentPage(index)}
+                onClick={() => setCurrentIndex(index)}
                 className={`transition-all duration-300 rounded-full ${
-                  index === currentPage
+                  index === currentIndex
                     ? "bg-[#01bbde] w-10 h-3"
                     : "bg-gray-300 w-3 h-3 hover:bg-gray-400"
                 }`}
-                aria-label={`Go to page ${index + 1}`}
+                aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
           </div>

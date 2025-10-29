@@ -15,6 +15,9 @@ export function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
+    // Check initial scroll position on mount
+    setIsScrolled(window.scrollY > 50);
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -25,7 +28,7 @@ export function Header() {
 
   const menuItems = [
     {
-      label: "DİL OKULU",
+      label: "Dil Okulu",
       href: "/dil-okulu",
       submenu: [
         {
@@ -49,7 +52,7 @@ export function Header() {
             { label: "KAPLAN INTERNATIONAL", href: "/dil-okulu/kaplan" },
             { label: "Kings Colleges", href: "/dil-okulu/kings" },
             { label: "St Giles", href: "/dil-okulu/st-giles" },
-            { label: "TÜM OKULLAR", href: "/dil-okulu/okullar", variant: "style1" },
+            { label: "Tüm Okullar", href: "/dil-okulu/okullar", variant: "style1" },
           ]
         },
         {
@@ -81,7 +84,7 @@ export function Header() {
       ],
     },
     {
-      label: "YAZ OKULU",
+      label: "Yaz Okulu",
       href: "/yaz-okulu",
       submenu: [
         {
@@ -107,7 +110,7 @@ export function Header() {
             { label: "Kings Education", href: "/yaz-okulu/kings" },
             { label: "St Giles", href: "/yaz-okulu/st-giles" },
             { label: "Stafford House", href: "/yaz-okulu/stafford-house" },
-            { label: "TÜM OKULLAR", href: "/yaz-okulu/okullar", variant: "style1" },
+            { label: "Tüm Okullar", href: "/yaz-okulu/okullar", variant: "style1" },
           ]
         },
         {
@@ -139,7 +142,7 @@ export function Header() {
       ],
     },
     {
-      label: "ÜNİVERSİTE",
+      label: "Üniversite",
       href: "/universite",
       submenu: [
         {
@@ -172,15 +175,15 @@ export function Header() {
       ],
     },
     {
-      label: "MASTER",
+      label: "Master",
       href: "/master",
     },
     {
-      label: "SERTİFİKA VE DİPLOMA",
+      label: "Sertifika ve Diploma",
       href: "/sertifika-ve-diploma",
     },
     {
-      label: "WORK & TRAVEL",
+      label: "Work & Travel",
       href: "/work-travel",
     },
   ];
@@ -193,7 +196,7 @@ export function Header() {
         "fixed left-0 right-0 z-50 transition-all duration-500 ease-in-out",
         isScrolled
           ? "top-4"
-          : "top-10"
+          : "lg:top-10 top-4"
       )}
     >
       <div className="container mx-auto px-4">
@@ -201,7 +204,7 @@ export function Header() {
           className={cn(
             "transition-all duration-500 ease-in-out rounded-2xl",
             isScrolled
-              ? "max-w-5xl mx-auto bg-white shadow-xl px-6 py-2 border border-gray-200"
+              ? "max-w-6xl mx-auto bg-white shadow-xl px-6 py-2 border border-gray-200"
               : "bg-transparent px-0 py-0"
           )}
         >
@@ -211,33 +214,77 @@ export function Header() {
               isScrolled ? "h-14" : "h-20"
             )}
           >
-            {/* Logo */}
-            <Link href="/" className="flex items-center relative z-10">
-              <Image
-                src="/logo.png"
-                alt="StudyZONE International"
-                width={180}
-                height={60}
+            {/* Mobile Menu Button - Left - Hide when search is open on mobile */}
+            {!isSearchOpen && (
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className={cn(
-                  "w-auto transition-all duration-500",
-                  isScrolled ? "h-9" : "h-12"
+                  "lg:hidden p-2 rounded-md transition-colors",
+                  isScrolled ? "hover:bg-gray-100" : "hover:bg-white/20"
                 )}
-                priority
-              />
-            </Link>
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? (
+                  <X className={cn("w-6 h-6", isScrolled ? "text-gray-900" : "text-white drop-shadow-lg")} />
+                ) : (
+                  <Menu className={cn("w-6 h-6", isScrolled ? "text-gray-900" : "text-white drop-shadow-lg")} />
+                )}
+              </button>
+            )}
+
+            {/* Logo - Always visible on desktop, center on mobile when not searching */}
+            {!isSearchOpen && (
+              <Link href="/" className={cn("flex items-center relative z-10 lg:static absolute left-1/2 lg:left-auto lg:translate-x-0 -translate-x-1/2")}>
+                <Image
+                  src="/logo.png"
+                  alt="StudyZONE International"
+                  width={180}
+                  height={60}
+                  className={cn(
+                    "w-auto transition-all duration-500",
+                    isScrolled ? "h-9" : "h-12"
+                  )}
+                  priority
+                />
+              </Link>
+            )}
+
+            {/* Mobile Search Button - Right - Hide when search is open */}
+            {!isSearchOpen && (
+              <button
+                onClick={() => {
+                  setIsSearchOpen(true);
+                  setActiveDropdown(null);
+                }}
+                className={cn(
+                  "lg:hidden p-2 rounded-md transition-colors",
+                  isScrolled ? "hover:bg-gray-100" : "hover:bg-white/20"
+                )}
+                aria-label="Search"
+              >
+                <Search
+                  className={cn(
+                    "w-5 h-5 transition-colors",
+                    isScrolled ? "text-gray-900" : "text-white drop-shadow-lg"
+                  )}
+                />
+              </button>
+            )}
 
           {/* Search Box - Shows when search is open */}
           {isSearchOpen ? (
             <div className={cn(
-              "flex-1 flex items-center gap-3 animate-in fade-in duration-200 rounded-2xl transition-all",
-              isScrolled ? "ml-6 px-0" : "ml-8 px-6 py-3 bg-white shadow-lg"
+              "flex items-center gap-3 animate-in fade-in duration-200 transition-all",
+              "lg:flex-1 lg:ml-6",
+              // Mobile: full width
+              "w-full lg:w-auto"
             )}>
               <div className="flex-1 relative">
                 <input
                   type="text"
                   placeholder="Program, ülke veya okul arayın..."
                   className={cn(
-                    "w-full border-2 border-gray-200 rounded-full focus:border-primary focus:outline-none transition-all",
+                    "w-full border-2 border-gray-200 rounded-full focus:border-primary focus:outline-none transition-all bg-white",
                     isScrolled ? "pl-4 pr-12 py-2.5 text-sm" : "pl-6 pr-14 py-3.5 text-base"
                   )}
                   autoFocus
@@ -254,8 +301,10 @@ export function Header() {
               <button
                 onClick={() => setIsSearchOpen(false)}
                 className={cn(
-                  "text-gray-400 hover:text-gray-600 transition-colors rounded-full hover:bg-gray-100 flex-shrink-0",
-                  isScrolled ? "p-1.5" : "p-2"
+                  "transition-colors rounded-full flex-shrink-0",
+                  isScrolled
+                    ? "text-gray-400 hover:text-gray-600 hover:bg-gray-100 p-1.5"
+                    : "p-2 bg-white text-gray-600 hover:bg-gray-100 lg:bg-transparent lg:text-white lg:hover:bg-white/20"
                 )}
               >
                 <X className={cn(isScrolled ? "w-5 h-5" : "w-6 h-6")} />
@@ -282,8 +331,8 @@ export function Header() {
                   className={cn(
                     "flex items-center gap-1 font-semibold transition-all duration-500 rounded-lg relative whitespace-nowrap",
                     isScrolled
-                      ? "text-xs py-1.5 px-2.5 text-gray-700 hover:bg-primary/20 hover:text-primary"
-                      : "text-sm py-2 px-3 text-white hover:bg-primary/30 hover:text-white drop-shadow-lg",
+                      ? "text-sm py-1.5 px-2.5 text-gray-700 hover:bg-primary/20 hover:text-primary"
+                      : "text-base py-2 px-3 text-white hover:bg-primary/30 hover:text-white drop-shadow-lg",
                     isActive(item.href) && (isScrolled ? "bg-primary/20 text-primary" : "bg-primary/30 text-white")
                   )}
                 >
@@ -294,8 +343,8 @@ export function Header() {
                   )} />}
                 </Link>
 
-                {/* Mega Menu for DİL OKULU, YAZ OKULU */}
-                {(item.label === "DİL OKULU" || item.label === "YAZ OKULU") && item.submenu && activeDropdown === item.label && (
+                {/* Mega Menu for Dil Okulu, Yaz Okulu */}
+                {(item.label === "Dil Okulu" || item.label === "Yaz Okulu") && item.submenu && activeDropdown === item.label && (
                   <>
                     {/* Invisible hover bridge */}
                     <div
@@ -314,12 +363,12 @@ export function Header() {
                         <div className={cn(
                           "transition-all duration-500 ease-in-out rounded-2xl",
                           isScrolled
-                            ? "max-w-5xl mx-auto bg-white shadow-xl px-6 py-2 border border-gray-200"
+                            ? "max-w-6xl mx-auto bg-white shadow-xl px-6 py-2 border border-gray-200"
                             : "bg-white shadow-xl px-0 py-0 border border-gray-200"
                         )}>
                         <div className={cn(
                           "grid gap-0",
-                          item.label === "YAZ OKULU" ? "grid-cols-5" : "grid-cols-5"
+                          item.label === "Yaz Okulu" ? "grid-cols-5" : "grid-cols-5"
                         )}>
                       {item.submenu.map((section: any, idx: number) => (
                         <div
@@ -342,28 +391,36 @@ export function Header() {
                             <div className={cn("transition-all duration-500", isScrolled ? "space-y-2" : "space-y-3")}>
                               <Link
                                 href={
-                                  item.label === "DİL OKULU" ? "/dil-okulu/kampanyalar" :
-                                  item.label === "YAZ OKULU" ? "/yaz-okulu/filtrele" :
+                                  item.label === "Dil Okulu" ? "/dil-okulu/kampanyalar" :
+                                  item.label === "Yaz Okulu" ? "/yaz-okulu/filtrele" :
                                   "/universite/kampanyalar"
                                 }
                                 className="block"
                               >
                                 <div className={cn(
-                                  "relative bg-gradient-to-br from-primary to-secondary rounded-lg overflow-hidden group cursor-pointer transition-all duration-500",
-                                  item.label === "YAZ OKULU"
+                                  "relative rounded-lg overflow-hidden group cursor-pointer transition-all duration-500",
+                                  item.label === "Yaz Okulu"
                                     ? (isScrolled ? "h-40" : "h-48")
-                                    : (isScrolled ? "h-24" : "h-32")
+                                    : (isScrolled ? "h-24" : "h-32"),
+                                  item.label === "Yaz Okulu"
+                                    ? "bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-primary/20"
+                                    : "bg-gradient-to-br from-primary to-secondary"
                                 )}>
-                                  <div className="absolute inset-0 bg-black/20"></div>
-                                  {item.label !== "YAZ OKULU" && (
-                                    <div className="absolute top-2 right-2">
-                                      <span className="bg-red-500 text-white text-[9px] px-2 py-0.5 rounded-full font-bold animate-pulse">
-                                        HOT
-                                      </span>
-                                    </div>
+                                  {item.label !== "Yaz Okulu" && (
+                                    <>
+                                      <div className="absolute inset-0 bg-black/20"></div>
+                                      <div className="absolute top-2 right-2">
+                                        <span className="bg-red-500 text-white text-[9px] px-2 py-0.5 rounded-full font-bold animate-pulse">
+                                          HOT
+                                        </span>
+                                      </div>
+                                    </>
                                   )}
-                                  <div className="relative z-10 p-3 h-full flex flex-col justify-center items-center text-white text-center">
-                                    {item.label === "DİL OKULU" && (
+                                  <div className={cn(
+                                    "relative z-10 h-full flex flex-col items-center text-center",
+                                    item.label === "Yaz Okulu" ? "text-gray-900 justify-between py-6 px-4" : "text-white justify-center p-3"
+                                  )}>
+                                    {item.label === "Dil Okulu" && (
                                       <>
                                         <div className="text-2xl mb-1">🎯</div>
                                         <h4 className="font-bold text-xs mb-1">Kış Dönemi</h4>
@@ -371,21 +428,52 @@ export function Header() {
                                         <p className="text-[9px] opacity-90">Malta & İngiltere</p>
                                       </>
                                     )}
-                                    {item.label === "YAZ OKULU" && (
+                                    {item.label === "Yaz Okulu" && (
                                       <>
-                                        <div className="text-3xl mb-2">🔍</div>
-                                        <h4 className="font-bold text-sm mb-2">Yüzlerce okul ve program arasında kaybolmayın, size en uygun yaz okullarını hemen bulun !</h4>
-                                        <div className="bg-white text-primary px-4 py-2 rounded-full text-xs font-bold">
-                                          YAZ OKULLARINI FİLTRELE
+                                        {/* Modern Search Icon */}
+                                        <div>
+                                          <div className={cn(
+                                            "bg-primary/10 rounded-full flex items-center justify-center mx-auto",
+                                            isScrolled ? "w-16 h-16" : "w-20 h-20"
+                                          )}>
+                                            <svg className={cn("text-primary", isScrolled ? "w-8 h-8" : "w-10 h-10")} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                            </svg>
+                                          </div>
+                                        </div>
+                                        {/* Hierarchical Text */}
+                                        <div className="flex-1 flex flex-col justify-center">
+                                          <p className={cn(
+                                            "uppercase tracking-wider text-primary/70 font-bold",
+                                            isScrolled ? "text-[10px] mb-2" : "text-xs mb-3"
+                                          )}>YAZ OKULU SEÇİMİ</p>
+                                          <h4 className={cn(
+                                            "font-bold leading-snug text-gray-900 px-2",
+                                            isScrolled ? "text-sm" : "text-base"
+                                          )}>
+                                            Size en uygun yaz okullarını<br/>
+                                            <span className="text-primary">hemen bulun!</span>
+                                          </h4>
+                                        </div>
+                                        <div className={cn(
+                                          "bg-primary hover:bg-primary/90 text-white rounded-full font-bold transition-colors shadow-sm",
+                                          isScrolled ? "px-5 py-2 text-xs" : "px-6 py-2.5 text-sm"
+                                        )}>
+                                          FİLTRELE
                                         </div>
                                       </>
                                     )}
                                   </div>
-                                  <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-all"></div>
+                                  <div className={cn(
+                                    "absolute inset-0 transition-all",
+                                    item.label === "Yaz Okulu"
+                                      ? "bg-primary/0 group-hover:bg-primary/5"
+                                      : "bg-white/0 group-hover:bg-white/10"
+                                  )}></div>
                                 </div>
                               </Link>
 
-                              {item.label === "DİL OKULU" && (
+                              {item.label === "Dil Okulu" && (
                                 <>
                                   <div className="space-y-1.5">
                                     <Link href="/dil-okulu/kampanyalar" className="block p-2 bg-white rounded-lg border border-primary/20 hover:border-primary hover:shadow-md transition-all group">
@@ -417,21 +505,29 @@ export function Header() {
                             </div>
                           ) : (
                             /* Regular menu items */
-                            <ul className={cn("transition-all duration-500", isScrolled ? "space-y-1" : "space-y-1.5")}>
+                            <ul className={cn("transition-all duration-500", isScrolled ? "space-y-0.5" : "space-y-1")}>
                               {section.items?.map((subitem: any, subIdx: number) => (
                                 <li key={`${item.label}-${section.category}-${subitem.href}-${subIdx}`}>
                                   <Link
                                     href={subitem.href}
                                     className={cn(
                                       "block rounded-lg transition-all duration-500",
-                                      isScrolled ? "px-2 py-1 text-[10px]" : "px-2.5 py-1.5 text-[11px]",
                                       subitem.variant === "style1"
-                                        ? "bg-primary text-white font-bold shadow-sm hover:shadow-md hover:scale-105"
+                                        ? cn(
+                                            "bg-primary/10 text-primary font-semibold hover:bg-primary/20 text-center border border-primary/20",
+                                            isScrolled ? "px-3 py-1.5 text-xs" : "px-3 py-1.5 text-sm"
+                                          )
                                         : subitem.variant === "style2"
-                                        ? "border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white shadow-sm hover:scale-105"
-                                        : isActive(subitem.href)
-                                        ? "bg-primary/25 text-primary font-semibold border-l-3 border-primary"
-                                        : "text-gray-700 hover:bg-primary/20 hover:text-primary hover:translate-x-1"
+                                        ? cn(
+                                            "border border-primary text-primary font-semibold hover:bg-primary/10 text-center",
+                                            isScrolled ? "px-3 py-1.5 text-xs" : "px-3 py-1.5 text-sm"
+                                          )
+                                        : cn(
+                                            isScrolled ? "px-2 py-1 text-sm" : "px-2.5 py-1.5 text-base",
+                                            isActive(subitem.href)
+                                              ? "bg-primary/25 text-primary font-semibold border-l-3 border-primary"
+                                              : "text-gray-700 hover:bg-primary/20 hover:text-primary hover:translate-x-1"
+                                          )
                                     )}
                                   >
                                     {subitem.label}
@@ -449,8 +545,8 @@ export function Header() {
                   </>
                 )}
 
-                {/* ÜNİVERSİTE Dropdown - 2 Column Grid */}
-                {item.label === "ÜNİVERSİTE" && item.submenu && activeDropdown === item.label && (
+                {/* Üniversite Dropdown - 2 Column Grid */}
+                {item.label === "Üniversite" && item.submenu && activeDropdown === item.label && (
                   <>
                     {/* Invisible hover bridge */}
                     <div
@@ -460,46 +556,58 @@ export function Header() {
                     />
 
                     <div
-                      className="absolute top-full left-0 mt-0 pt-2 bg-white shadow-xl rounded-xl py-5 px-5 min-w-[550px] animate-in fade-in slide-in-from-top-2 duration-200 border border-gray-100"
+                      className="absolute left-0 z-50"
+                      style={{ top: '100%', marginTop: '16px' }}
                       onMouseEnter={() => setActiveDropdown(item.label)}
                       onMouseLeave={() => setActiveDropdown(null)}
                     >
-                    <div className="grid grid-cols-2 gap-0">
-                      {item.submenu.map((section: any, idx: number) => (
-                        <div key={`universite-${section.category}-${idx}`} className={cn(
-                          "border-r border-gray-100 last:border-r-0 p-5",
-                          idx % 2 === 0 ? "bg-gray-50/50" : "bg-white"
-                        )}>
-                          <h3 className="font-bold text-gray-500 uppercase tracking-wider text-[10px] mb-3 pb-2 border-b border-primary/20">
-                            {section.category}
-                          </h3>
-                          <ul className="space-y-1.5">
-                            {section.items?.map((subitem: any, subIdx: number) => (
-                              <li key={`universite-${section.category}-${subitem.href}-${subIdx}`}>
-                                <Link
-                                  href={subitem.href}
-                                  className={cn(
-                                    "block rounded-lg transition-all",
-                                    "px-2.5 py-1.5 text-[11px]",
-                                    isActive(subitem.href)
-                                      ? "bg-primary/25 text-primary font-semibold border-l-3 border-primary"
-                                      : "text-gray-700 hover:bg-primary/20 hover:text-primary hover:translate-x-1"
-                                  )}
-                                >
-                                  {subitem.label}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
+                      <div className={cn(
+                        "transition-all duration-500 ease-in-out rounded-2xl bg-white shadow-xl border border-gray-200",
+                        isScrolled
+                          ? "px-6 py-2"
+                          : "px-0 py-0"
+                      )}>
+                        <div className="grid grid-cols-2 gap-0 min-w-[700px]">
+                          {item.submenu.map((section: any, idx: number) => (
+                            <div key={`universite-${section.category}-${idx}`} className={cn(
+                              "border-r border-gray-100 last:border-r-0 transition-all duration-500",
+                              isScrolled ? "p-3" : "p-5",
+                              idx % 2 === 0 ? "bg-gray-50/50" : "bg-white"
+                            )}>
+                              <h3 className={cn(
+                                "font-bold text-gray-500 uppercase tracking-wider pb-2 border-b border-primary/20 transition-all duration-500",
+                                isScrolled ? "text-[9px] mb-2" : "text-[10px] mb-3"
+                              )}>
+                                {section.category}
+                              </h3>
+                              <ul className={cn("transition-all duration-500", isScrolled ? "space-y-1" : "space-y-1.5")}>
+                                {section.items?.map((subitem: any, subIdx: number) => (
+                                  <li key={`universite-${section.category}-${subitem.href}-${subIdx}`}>
+                                    <Link
+                                      href={subitem.href}
+                                      className={cn(
+                                        "block rounded-lg transition-all duration-500",
+                                        isScrolled ? "px-2 py-1 text-sm" : "px-2.5 py-1.5 text-base",
+                                        isActive(subitem.href)
+                                          ? "bg-primary/25 text-primary font-semibold border-l-3 border-primary"
+                                          : "text-gray-700 hover:bg-primary/20 hover:text-primary hover:translate-x-1"
+                                      )}
+                                    >
+                                      {subitem.label}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
                         </div>
-                      ))}
+                      </div>
                     </div>
-                  </div>
                   </>
                 )}
 
-                {/* Regular Dropdown for other menus (not DİL OKULU, YAZ OKULU, ÜNİVERSİTE) */}
-                {item.label !== "DİL OKULU" && item.label !== "YAZ OKULU" && item.label !== "ÜNİVERSİTE" && item.submenu && activeDropdown === item.label && (
+                {/* Regular Dropdown for other menus (not Dil Okulu, Yaz Okulu, Üniversite) */}
+                {item.label !== "Dil Okulu" && item.label !== "Yaz Okulu" && item.label !== "Üniversite" && item.submenu && activeDropdown === item.label && (
                   <div
                     className="absolute top-full right-0 mt-0 pt-2 bg-white shadow-xl rounded-xl py-3 min-w-[220px] animate-in fade-in slide-in-from-top-2 duration-200 border border-gray-100"
                     onMouseEnter={() => setActiveDropdown(item.label)}
@@ -551,89 +659,121 @@ export function Header() {
             </div>
           )}
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={cn(
-              "lg:hidden p-2 rounded-md transition-colors",
-              isScrolled ? "hover:bg-gray-100" : "hover:bg-white/20"
-            )}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className={cn("w-6 h-6", isScrolled ? "text-gray-900" : "text-white drop-shadow-lg")} />
-            ) : (
-              <Menu className={cn("w-6 h-6", isScrolled ? "text-gray-900" : "text-white drop-shadow-lg")} />
-            )}
-          </button>
           </div>
 
-          {/* Mobile Navigation */}
+          {/* Mobile Navigation - Full Screen Modern Design */}
           {isMobileMenuOpen && (
-            <nav className="lg:hidden py-4 border-t border-gray-200 bg-white rounded-b-lg shadow-xl">
-              {menuItems.map((item) => (
-                <div key={item.href} className="py-2">
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      "flex items-center justify-between px-2 py-2 font-semibold transition-colors",
-                      isActive(item.href) ? "text-primary" : "text-gray-700 hover:text-primary"
-                    )}
-                    onClick={() => !item.submenu && setIsMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                    {item.submenu && <ChevronDown className="w-4 h-4" />}
-                  </Link>
-                  {item.submenu && (
-                    <div className="ml-4 mt-2 space-y-1">
-                      {item.submenu.map((subitem, idx) => {
-                        // Handle DİL OKULU submenu structure (sections with items)
-                        if ('items' in subitem && Array.isArray(subitem.items)) {
-                          return (
-                            <div key={`section-${idx}`} className="mb-3">
-                              <div className="text-xs font-bold text-gray-500 uppercase mb-1 px-2">
-                                {subitem.category}
-                              </div>
-                              {subitem.items.map((linkItem, linkIdx) => (
-                                <Link
-                                  key={`mobile-${idx}-${linkIdx}-${linkItem.href}`}
-                                  href={linkItem.href}
-                                  className={cn(
-                                    "block px-2 py-2 text-sm transition-colors",
-                                    isActive(linkItem.href) ? "text-primary font-semibold" : "text-gray-600 hover:text-primary"
-                                  )}
-                                  onClick={() => setIsMobileMenuOpen(false)}
-                                >
-                                  {linkItem.label}
-                                </Link>
-                              ))}
-                            </div>
-                          );
-                        }
-                        // Handle simple submenu structure (direct links)
-                        if ('href' in subitem) {
-                          return (
-                            <Link
-                              key={subitem.href}
-                              href={subitem.href}
-                              className={cn(
-                                "block px-2 py-2 text-sm transition-colors",
-                                isActive(subitem.href) ? "text-primary font-semibold" : "text-gray-600 hover:text-primary"
-                              )}
-                              onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                              {subitem.label}
-                            </Link>
-                          );
-                        }
-                        // Handle promo type sections
-                        return null;
-                      })}
+            <div className="lg:hidden fixed inset-0 z-[100] bg-white animate-in fade-in slide-in-from-right duration-300">
+              {/* Mobile Menu Header */}
+              <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                <Image
+                  src="/logo.png"
+                  alt="StudyZONE International"
+                  width={150}
+                  height={50}
+                  className="h-10 w-auto"
+                />
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                  aria-label="Close menu"
+                >
+                  <X className="w-6 h-6 text-gray-900" />
+                </button>
+              </div>
+
+              {/* Mobile Menu Content - Scrollable */}
+              <nav className="h-[calc(100vh-88px)] overflow-y-auto">
+                <div className="p-6 space-y-2">
+                  {menuItems.map((item) => (
+                    <div key={item.href}>
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          "flex items-center justify-between px-4 py-4 font-bold text-lg rounded-xl transition-all",
+                          isActive(item.href)
+                            ? "bg-primary text-white shadow-lg"
+                            : "bg-gray-50 text-gray-900 hover:bg-gray-100 active:scale-95"
+                        )}
+                        onClick={() => !item.submenu && setIsMobileMenuOpen(false)}
+                      >
+                        <span>{item.label}</span>
+                        {item.submenu && (
+                          <ChevronDown
+                            className={cn(
+                              "w-5 h-5 transition-transform",
+                              activeDropdown === item.label && "rotate-180"
+                            )}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setActiveDropdown(activeDropdown === item.label ? null : item.label);
+                            }}
+                          />
+                        )}
+                      </Link>
+
+                      {/* Submenu */}
+                      {item.submenu && activeDropdown === item.label && (
+                        <div className="mt-2 ml-4 space-y-3 animate-in slide-in-from-top-2 duration-200">
+                          {item.submenu.map((subitem, idx) => {
+                            // Handle sections with items
+                            if ('items' in subitem && Array.isArray(subitem.items)) {
+                              return (
+                                <div key={`section-${idx}`} className="bg-gray-50 rounded-lg p-4">
+                                  <div className="text-xs font-bold text-primary uppercase mb-3 tracking-wider">
+                                    {subitem.category}
+                                  </div>
+                                  <div className="space-y-1">
+                                    {subitem.items.map((linkItem, linkIdx) => (
+                                      <Link
+                                        key={`mobile-${idx}-${linkIdx}-${linkItem.href}`}
+                                        href={linkItem.href}
+                                        className={cn(
+                                          "block px-3 py-2.5 text-sm rounded-lg transition-all",
+                                          isActive(linkItem.href)
+                                            ? "bg-primary/20 text-primary font-semibold"
+                                            : "text-gray-700 hover:bg-white hover:text-primary"
+                                        )}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                      >
+                                        {linkItem.label}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
+                              );
+                            }
+                            // Handle promo sections
+                            if (subitem.type === "promo") {
+                              return null;
+                            }
+                            return null;
+                          })}
+                        </div>
+                      )}
                     </div>
-                  )}
+                  ))}
                 </div>
-              ))}
-            </nav>
+
+                {/* Mobile Menu Footer - Contact */}
+                <div className="p-6 border-t border-gray-200 bg-gray-50">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="bg-primary/10 p-3 rounded-full">
+                      <Phone className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-600 font-semibold">Ücretsiz Danışma Hattı</p>
+                      <a
+                        href="tel:+902129700070"
+                        className="text-lg font-bold text-primary hover:text-primary/80 transition-colors"
+                      >
+                        0212-970 0070
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
           )}
         </div>
       </div>

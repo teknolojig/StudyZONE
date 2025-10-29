@@ -29,6 +29,9 @@
   --color-secondary-900: #11071a;
   --color-secondary-foreground: #ffffff;
 
+  /* Footer Color */
+  --color-footer-dark: #0a0a0a;
+
   /* Base Colors */
   --color-background: #ffffff;
   --color-foreground: #171717;
@@ -75,7 +78,7 @@ body {
 
 /* Custom Utilities */
 .hero-overlay {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(86, 34, 129, 0.6) 50%, rgba(229, 68, 19, 0.5) 100%);
+  background: linear-gradient(135deg, rgba(153, 27, 27, 0.92) 0%, rgba(100, 100, 120, 0.88) 50%, rgba(23, 64, 180, 0.92) 100%);
 }
 
 .glass-effect {
@@ -83,3 +86,22 @@ body {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+/* Phone ring animation */
+@keyframes ring {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  10%, 30% {
+    transform: rotate(-15deg);
+  }
+  20%, 40% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+}
+
+
+
