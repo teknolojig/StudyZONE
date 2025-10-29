@@ -69,66 +69,66 @@ export function InfoFormModal({ isOpen, onClose }: InfoFormModalProps) {
           <div className="pt-6 px-4 md:px-8 pb-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
             {/* Left Column - Form (exact copy from work-travel) */}
-            <div className="bg-white rounded-xl shadow-xl p-6 md:p-8 border border-gray-100">
-              <div className="mb-6">
-                <h3 className="text-gray-900 text-xl font-black mb-3">
+            <div className="bg-white rounded-xl shadow-xl p-4 md:p-8 border border-gray-100">
+              <div className="mb-4 md:mb-6">
+                <h3 className="text-gray-900 text-lg md:text-xl font-black mb-2 md:mb-3">
                   BİLGİ FORMU
                 </h3>
-                <p className="text-primary text-lg font-semibold mb-1">
+                <p className="text-primary text-base md:text-lg font-semibold mb-1">
                   2026 işleri ve kayıt işlemleriyle ilgili bilgi almak için hemen formu doldurun!
                 </p>
-                <p className="text-sm text-gray-600">
+                <p className="text-xs md:text-sm text-gray-600">
                   Tecrübeli danışmanlarımız size yardımcı olmaktan mutluluk duyacaktır.
                 </p>
-                <p className="text-sm text-gray-700 mt-2 font-medium">
+                <p className="text-xs md:text-sm text-gray-700 mt-1 md:mt-2 font-medium">
                   Acele edin, fırsatı kaçırmayın!
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
                 <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 md:w-5 h-4 md:h-5 text-gray-400" />
                   <Input
                     type="text"
                     placeholder="Ad Soyad"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
-                    className="pl-11 h-12 bg-white border-gray-300 text-base"
+                    className="pl-10 md:pl-11 h-10 md:h-12 bg-white border-gray-300 text-sm md:text-base"
                   />
                 </div>
 
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 md:w-5 h-4 md:h-5 text-gray-400" />
                   <Input
                     type="email"
                     placeholder="Email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
-                    className="pl-11 h-12 bg-white border-gray-300 text-base"
+                    className="pl-10 md:pl-11 h-10 md:h-12 bg-white border-gray-300 text-sm md:text-base"
                   />
                 </div>
 
                 <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 md:w-5 h-4 md:h-5 text-gray-400" />
                   <Input
                     type="tel"
                     placeholder="Telefon"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     required
-                    className="pl-11 h-12 bg-white border-gray-300 text-base"
+                    className="pl-10 md:pl-11 h-10 md:h-12 bg-white border-gray-300 text-sm md:text-base"
                   />
                 </div>
 
                 <div className="relative">
-                  <GraduationCap className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 z-10" />
+                  <GraduationCap className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 md:w-5 h-4 md:h-5 text-gray-400 z-10" />
                   <Select
                     value={formData.university}
                     onValueChange={(value) => setFormData({ ...formData, university: value })}
                   >
-                    <SelectTrigger className="pl-11 h-12 bg-gray-50 border-gray-300 text-base">
+                    <SelectTrigger className="pl-10 md:pl-11 h-10 md:h-12 bg-gray-50 border-gray-300 text-sm md:text-base">
                       <SelectValue placeholder="Üniversiteniz" />
                     </SelectTrigger>
                     <SelectContent className="max-h-[300px]">

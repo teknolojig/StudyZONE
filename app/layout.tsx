@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr">
-      <body className={`${inter.variable} antialiased font-sans`}>
+      <body className={`${inter.variable} antialiased font-sans pb-16 lg:pb-0`}>
         <Topbar />
         <Header />
         <main>{children}</main>
