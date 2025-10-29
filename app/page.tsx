@@ -1,10 +1,75 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "StudyZONE International | Yurtdışı Eğitim Danışmanlığı - 28 Yıllık Tecrübe",
+  description: "28 yıldır yurtdışı eğitim danışmanlığı hizmetleri sunuyoruz. 17 ülkeden 300+ eğitim kurumunun resmi temsilcisi. Dil okulu, yaz okulu, üniversite, master ve Work & Travel programları.",
+  keywords: ["yurtdışı eğitim", "dil okulu", "yaz okulu", "üniversite", "master", "work and travel", "eğitim danışmanlığı", "study abroad", "StudyZONE"],
+  authors: [{ name: "StudyZONE International" }],
+  openGraph: {
+    title: "StudyZONE International | Yurtdışı Eğitim Danışmanlığı",
+    description: "28 yıllık tecrübeyle yurtdışı eğitim hayallerinizi gerçekleştirin. 17 ülke, 300+ okul.",
+    url: "https://studyzone.com.tr",
+    siteName: "StudyZONE International",
+    images: [
+      {
+        url: "/home.jpg",
+        width: 1200,
+        height: 630,
+        alt: "StudyZONE International Yurtdışı Eğitim",
+      },
+    ],
+    locale: "tr_TR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "StudyZONE International | Yurtdışı Eğitim Danışmanlığı",
+    description: "28 yıllık tecrübeyle yurtdışı eğitim hayallerinizi gerçekleştirin.",
+    images: ["/home.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
 
 export default function Home() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'EducationalOrganization',
+    name: 'StudyZONE International',
+    description: '28 yıldır yurtdışı eğitim danışmanlığı hizmetleri sunuyoruz',
+    url: 'https://studyzone.com.tr',
+    logo: 'https://studyzone.com.tr/logo.png',
+    telephone: '+90-212-970-0070',
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'TR',
+      addressLocality: 'İstanbul',
+    },
+    sameAs: [
+      'https://facebook.com/studyzone',
+      'https://instagram.com/studyzone',
+      'https://linkedin.com/company/studyzone',
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero Section - Full Screen */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
@@ -15,7 +80,9 @@ export default function Home() {
             fill
             className="object-cover object-center"
             priority
-            quality={95}
+            fetchPriority="high"
+            quality={65}
+            sizes="100vw"
           />
           {/* Dark Overlay for better text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />

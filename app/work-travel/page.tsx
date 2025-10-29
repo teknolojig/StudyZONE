@@ -14,6 +14,25 @@ import { CheckCircle2 } from "lucide-react";
 export default function WorkTravelPage() {
   const [isCallNowModalOpen, setIsCallNowModalOpen] = useState(false);
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Work and Travel USA 2026',
+    description: 'Work and Travel USA programı ile Amerika\'da çalış, gez, para kazan',
+    provider: {
+      '@type': 'EducationalOrganization',
+      name: 'StudyZONE International',
+      url: 'https://studyzone.com.tr',
+    },
+    areaServed: 'TR',
+    serviceType: 'Work and Travel Program',
+    offers: {
+      '@type': 'Offer',
+      description: 'Work and Travel USA 2026 programı',
+      priceCurrency: 'USD',
+    },
+  };
+
   const handleCallNowClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     // Only prevent default and show modal on desktop
     if (window.innerWidth >= 1024) {
@@ -37,6 +56,10 @@ export default function WorkTravelPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero Section */}
       <section className="relative h-[600px] md:h-[700px] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
@@ -47,7 +70,9 @@ export default function WorkTravelPage() {
             fill
             className="object-cover object-center"
             priority
-            quality={95}
+            fetchPriority="high"
+            quality={65}
+            sizes="100vw"
           />
           {/* Gradient Overlay */}
           <div className="absolute inset-0 hero-overlay"></div>
@@ -143,7 +168,8 @@ export default function WorkTravelPage() {
             alt="CIEE Sponsorlar"
             fill
             className="object-cover object-center"
-            quality={95}
+            quality={60}
+            sizes="100vw"
           />
           {/* Dark overlay for text readability */}
           <div className="absolute inset-0 bg-black/50"></div>
@@ -219,6 +245,8 @@ export default function WorkTravelPage() {
                         alt="Erken Kayıt Avantajı 1"
                         fill
                         className="object-cover"
+                        quality={60}
+                        sizes="(max-width: 768px) 208px, 208px"
                       />
                     </div>
                   </div>
@@ -254,7 +282,8 @@ export default function WorkTravelPage() {
                         alt="Erken Kayıt Avantajı 2"
                         fill
                         className="object-cover"
-                        unoptimized
+                        quality={60}
+                        sizes="(max-width: 768px) 208px, 208px"
                       />
                     </div>
                   </div>
@@ -290,6 +319,8 @@ export default function WorkTravelPage() {
                         alt="Erken Kayıt Avantajı 3"
                         fill
                         className="object-cover"
+                        quality={60}
+                        sizes="(max-width: 768px) 208px, 208px"
                       />
                     </div>
                   </div>
@@ -327,7 +358,8 @@ export default function WorkTravelPage() {
             alt="Popüler İşler"
             fill
             className="object-cover object-center"
-            quality={95}
+            quality={60}
+            sizes="100vw"
           />
           {/* Turquoise overlay */}
           <div className="absolute inset-0 bg-[#01bbde]/70"></div>
@@ -356,7 +388,8 @@ export default function WorkTravelPage() {
             alt="Müşteri Memnuniyeti"
             fill
             className="object-cover object-center"
-            quality={95}
+            quality={60}
+            sizes="100vw"
           />
         </div>
 

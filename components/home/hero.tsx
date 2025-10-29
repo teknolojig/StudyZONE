@@ -15,7 +15,8 @@ export function Hero() {
           fill
           className="object-cover"
           priority
-          quality={90}
+          quality={65}
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black/30" />
       </div>
