@@ -647,6 +647,7 @@ export function Header() {
                   "rounded-full transition-all duration-500 relative",
                   isScrolled ? "p-1.5 hover:bg-primary/10" : "p-2 hover:bg-white/20"
                 )}
+                aria-label="Arama"
               >
                 <Search
                   className={cn(

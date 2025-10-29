@@ -128,7 +128,7 @@ export function InfoFormModal({ isOpen, onClose }: InfoFormModalProps) {
                     value={formData.university}
                     onValueChange={(value) => setFormData({ ...formData, university: value })}
                   >
-                    <SelectTrigger className="pl-10 md:pl-11 h-10 md:h-12 bg-gray-50 border-gray-300 text-sm md:text-base">
+                    <SelectTrigger className="pl-10 md:pl-11 h-10 md:h-12 bg-gray-50 border-gray-300 text-sm md:text-base" aria-label="Üniversiteniz">
                       <SelectValue placeholder="Üniversiteniz" />
                     </SelectTrigger>
                     <SelectContent className="max-h-[300px]">
