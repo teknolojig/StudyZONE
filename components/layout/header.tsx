@@ -318,7 +318,7 @@ export function Header() {
             )}>
             {menuItems.map((item) => (
               <div
-                key={item.href}
+                key={item.label}
                 className="relative group"
                 onMouseEnter={() => {
                   setActiveDropdown(item.label);

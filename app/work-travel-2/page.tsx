@@ -3,16 +3,27 @@
 import { useState } from "react";
 import Image from "next/image";
 import { WorkTravelForm } from "@/components/forms/work-travel-form";
-import { WhyStudyZoneV3 } from "@/components/home/why-studyzone-v3";
-import { StatsCounter } from "@/components/home/stats-counter";
-import { TestimonialsCarousel } from "@/components/work-travel/testimonials-carousel";
-import { Accreditations } from "@/components/work-travel/accreditations";
+import { WhyStudyZoneV4 } from "@/components/home/why-studyzone-v4";
+import { StatsCounterV2 } from "@/components/home/stats-counter-v2";
+import { TestimonialsCarouselV2 } from "@/components/work-travel/testimonials-carousel-v2";
+import { AccreditationsV2 } from "@/components/work-travel/accreditations-v2";
 import { DraggableCardContainer, DraggableCardBody } from "@/components/ui/draggable-card";
 import { CallNowModal } from "@/components/forms/call-now-modal";
+import { InfoFormModal } from "@/components/forms/info-form-modal";
 import { CheckCircle2 } from "lucide-react";
 
 export default function WorkTravelPage() {
   const [isCallNowModalOpen, setIsCallNowModalOpen] = useState(false);
+  const [isFormModalOpen, setIsFormModalOpen] = useState(false);
+
+  const handleCallNowClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Only prevent default and show modal on desktop
+    if (window.innerWidth >= 1024) {
+      e.preventDefault();
+      setIsCallNowModalOpen(true);
+    }
+    // On mobile, let the link work normally
+  };
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -33,14 +44,6 @@ export default function WorkTravelPage() {
     },
   };
 
-  const handleCallNowClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // Only prevent default and show modal on desktop
-    if (window.innerWidth >= 1024) {
-      e.preventDefault();
-      setIsCallNowModalOpen(true);
-    }
-    // On mobile, let the link work normally
-  };
   const reasons = [
     "2-4 ay Amerika'da çalışma fırsatı",
     "1 ay seyahat izni ile ABD'yi keşfet",
@@ -61,22 +64,34 @@ export default function WorkTravelPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {/* Hero Section - Modern & Fun Design */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-secondary to-primary/80">
         {/* Animated Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-72 h-72 bg-white rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-          <div className="absolute top-40 right-10 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-20 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+          <div className="absolute top-40 right-10 w-72 h-72 bg-white rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-20 left-20 w-72 h-72 bg-white rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
         </div>
 
-        {/* Floating Icons */}
+        {/* Floating Vector Icons */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-10 text-6xl animate-float">✈️</div>
-          <div className="absolute top-1/3 right-20 text-5xl animate-float animation-delay-1000">🗽</div>
-          <div className="absolute bottom-1/4 left-1/4 text-5xl animate-float animation-delay-2000">💼</div>
-          <div className="absolute bottom-1/3 right-1/4 text-6xl animate-float animation-delay-3000">🌎</div>
-          <div className="absolute top-1/2 right-10 text-4xl animate-float animation-delay-4000">⭐</div>
-          <div className="absolute bottom-20 left-1/3 text-5xl animate-float animation-delay-5000">💰</div>
+          <svg className="absolute top-1/4 left-10 w-16 h-16 text-white/20 animate-float" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+          </svg>
+          <svg className="absolute top-1/3 right-20 w-14 h-14 text-white/20 animate-float animation-delay-1000" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+          <svg className="absolute bottom-1/4 left-1/4 w-14 h-14 text-white/20 animate-float animation-delay-2000" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/>
+          </svg>
+          <svg className="absolute bottom-1/3 right-1/4 w-16 h-16 text-white/20 animate-float animation-delay-3000" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+          <svg className="absolute top-1/2 right-10 w-12 h-12 text-white/20 animate-float animation-delay-4000" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+          </svg>
+          <svg className="absolute bottom-20 left-1/3 w-14 h-14 text-white/20 animate-float animation-delay-5000" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+          </svg>
         </div>
 
         {/* Content */}
@@ -84,24 +99,24 @@ export default function WorkTravelPage() {
           <div className="max-w-6xl mx-auto text-center">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-8 border border-white/30 animate-bounce-slow">
-              <span className="text-2xl">🔥</span>
+              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/>
+              </svg>
               <span className="text-white font-bold text-sm md:text-base">2025 Kontenjanları Doldu!</span>
             </div>
 
-            {/* Main Title - Split Design */}
+            {/* Main Title - Single Line */}
             <div className="mb-8">
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-4 leading-none">
-                <span className="text-white drop-shadow-2xl block">WORK &</span>
-                <span className="text-yellow-300 drop-shadow-2xl block -mt-2">TRAVEL</span>
-                <span className="text-white text-6xl sm:text-7xl md:text-8xl lg:text-9xl drop-shadow-2xl block -mt-4">2026</span>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
+                <span className="text-white drop-shadow-2xl">WORK & TRAVEL 2026</span>
               </h1>
             </div>
 
             {/* Subtitle with Animation */}
             <div className="relative inline-block mb-10">
-              <div className="absolute inset-0 bg-yellow-300 blur-xl opacity-50 animate-pulse"></div>
-              <h2 className="relative text-3xl md:text-5xl lg:text-6xl font-black text-white drop-shadow-xl bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent animate-gradient">
-                Kayıtları Başladı! 🎉
+              <div className="absolute inset-0 bg-primary blur-xl opacity-50 animate-pulse"></div>
+              <h2 className="relative text-3xl md:text-5xl lg:text-6xl font-black text-white drop-shadow-xl">
+                Kayıtları Başladı!
               </h2>
             </div>
 
@@ -109,54 +124,74 @@ export default function WorkTravelPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 max-w-4xl mx-auto">
               {/* Benefit 1 */}
               <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:scale-105 transition-transform duration-300">
-                <div className="text-4xl mb-3">💵</div>
+                <svg className="w-12 h-12 mx-auto mb-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                </svg>
                 <div className="text-white font-bold text-lg mb-2">100 USD İndirim</div>
                 <div className="text-white/80 text-sm">Erken Kayıt Avantajı</div>
               </div>
 
               {/* Benefit 2 */}
               <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:scale-105 transition-transform duration-300">
-                <div className="text-4xl mb-3">💼</div>
+                <svg className="w-12 h-12 mx-auto mb-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/>
+                </svg>
                 <div className="text-white font-bold text-lg mb-2">İş Garantisi</div>
                 <div className="text-white/80 text-sm">En İyi İşler Sizin</div>
               </div>
 
               {/* Benefit 3 */}
               <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:scale-105 transition-transform duration-300">
-                <div className="text-4xl mb-3">🎯</div>
+                <svg className="w-12 h-12 mx-auto mb-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
                 <div className="text-white font-bold text-lg mb-2">Öncelikli Yerleştirme</div>
                 <div className="text-white/80 text-sm">Erken Başvuru Avantajı</div>
               </div>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="group relative px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 font-black text-lg rounded-full shadow-2xl hover:shadow-yellow-500/50 transform hover:scale-105 transition-all duration-300">
-                <span className="relative z-10 flex items-center gap-2">
-                  <span>🚀</span>
-                  <span>HEMEN BAŞVUR</span>
+            {/* CTA Buttons - Eye-Catching Design */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              {/* BİLGİ AL Button - Pulsing White Button */}
+              <button
+                onClick={() => setIsFormModalOpen(true)}
+                className="group relative px-10 py-5 bg-white text-primary font-black text-xl rounded-2xl shadow-2xl hover:shadow-white/50 transform hover:scale-110 transition-all duration-300 overflow-hidden animate-pulse hover:animate-none"
+              >
+                {/* Animated gradient background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-gray-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                {/* Ripple effect circles */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-full h-full bg-primary/10 rounded-2xl scale-0 group-hover:scale-150 opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+                </div>
+
+                <span className="relative z-10 flex items-center gap-3">
+                  <svg className="w-7 h-7 group-hover:rotate-12 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm0 4c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1.4c0-2 4-3.1 6-3.1s6 1.1 6 3.1V19z"/>
+                  </svg>
+                  <span className="tracking-wide">BİLGİ AL</span>
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-secondary rounded-full animate-ping"></div>
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-orange-400 rounded-full opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300"></div>
               </button>
 
-              <button className="px-8 py-4 bg-white/20 backdrop-blur-md border-2 border-white text-white font-bold text-lg rounded-full hover:bg-white/30 transition-all duration-300">
-                <span className="flex items-center gap-2">
-                  <span>📞</span>
-                  <span>BİLGİ AL</span>
+              {/* HEMEN ARAYIN Button - Glowing Border Button */}
+              <button
+                onClick={() => setIsCallNowModalOpen(true)}
+                className="group relative px-10 py-5 bg-gradient-to-r from-secondary/20 to-primary/20 backdrop-blur-md border-3 border-white text-white font-black text-xl rounded-2xl hover:from-secondary/30 hover:to-primary/30 transition-all duration-300 overflow-hidden hover:scale-110 shadow-2xl hover:shadow-white/30"
+              >
+                {/* Animated shine effect */}
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+
+                {/* Border glow animation */}
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_20px_rgba(255,255,255,0.5)] group-hover:shadow-[0_0_30px_rgba(255,255,255,0.7)]"></div>
+
+                <span className="relative z-10 flex items-center gap-3">
+                  <svg className="w-7 h-7 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                  </svg>
+                  <span className="tracking-wide">HEMEN ARAYIN</span>
                 </span>
               </button>
-            </div>
-
-            {/* Trust Badge */}
-            <div className="mt-12 inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20">
-              <div className="flex -space-x-2">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-white"></div>
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-green-600 border-2 border-white"></div>
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 border-2 border-white"></div>
-              </div>
-              <span className="text-white text-sm font-semibold">
-                <span className="text-yellow-300">500+</span> Öğrenci Katıldı
-              </span>
             </div>
           </div>
         </div>
@@ -208,11 +243,11 @@ export default function WorkTravelPage() {
         </div>
       </section>
 
-      {/* Why StudyZONE Section */}
-      <WhyStudyZoneV3 />
-
       {/* Stats Counter Section */}
-      <StatsCounter />
+      <StatsCounterV2 />
+
+      {/* Why StudyZONE Section */}
+      <WhyStudyZoneV4 />
 
       {/* CIEE Sponsor Section */}
       <section className="relative min-h-[400px] flex items-center justify-center overflow-hidden py-20">
@@ -432,7 +467,7 @@ export default function WorkTravelPage() {
       </section>
 
       {/* Testimonials Section */}
-      <TestimonialsCarousel />
+      <TestimonialsCarouselV2 />
 
       {/* Customer Satisfaction Section */}
       <section className="relative min-h-[400px] flex items-center justify-center overflow-hidden py-20">
@@ -469,7 +504,7 @@ export default function WorkTravelPage() {
       </section>
 
       {/* Accreditations Section */}
-      <Accreditations />
+      <AccreditationsV2 />
 
       {/* Call to Action Section */}
       <section className="relative py-12 md:py-16 bg-gradient-to-r from-green-500 via-green-600 to-emerald-700 overflow-hidden">
@@ -515,6 +550,12 @@ export default function WorkTravelPage() {
           </div>
         </div>
       </section>
+
+      {/* Info Form Modal */}
+      <InfoFormModal
+        isOpen={isFormModalOpen}
+        onClose={() => setIsFormModalOpen(false)}
+      />
 
       {/* Call Now Modal - Desktop only */}
       <CallNowModal
