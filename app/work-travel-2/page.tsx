@@ -60,59 +60,114 @@ export default function WorkTravelPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      {/* Hero Section */}
-      <section className="relative h-[600px] md:h-[700px] flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/workandtravel/work-and-travel.webp"
-            alt="Work & Travel 2026"
-            fill
-            className="object-cover object-center"
-            priority
-            fetchPriority="high"
-            quality={65}
-            sizes="100vw"
-          />
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 hero-overlay"></div>
+      {/* Hero Section - Modern & Fun Design */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500">
+        {/* Animated Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-white rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+          <div className="absolute top-40 right-10 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-20 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+        </div>
+
+        {/* Floating Icons */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-10 text-6xl animate-float">✈️</div>
+          <div className="absolute top-1/3 right-20 text-5xl animate-float animation-delay-1000">🗽</div>
+          <div className="absolute bottom-1/4 left-1/4 text-5xl animate-float animation-delay-2000">💼</div>
+          <div className="absolute bottom-1/3 right-1/4 text-6xl animate-float animation-delay-3000">🌎</div>
+          <div className="absolute top-1/2 right-10 text-4xl animate-float animation-delay-4000">⭐</div>
+          <div className="absolute bottom-20 left-1/3 text-5xl animate-float animation-delay-5000">💰</div>
         </div>
 
         {/* Content */}
-        <div className="container mx-auto px-4 z-10">
-          <div className="max-w-5xl mx-auto text-left md:text-center text-white">
-            {/* Main Title */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight drop-shadow-2xl md:whitespace-nowrap">
-              WORK & TRAVEL 2026
-            </h1>
-
-            {/* Subtitle */}
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6 text-primary drop-shadow-xl">
-              Kayıtları Başladı!
-            </h2>
-
-            {/* Description */}
-            <div className="space-y-3 text-base md:text-xl lg:text-2xl mb-6 drop-shadow-lg">
-              <p className="font-semibold">
-                Amerika seni bekliyor!
-              </p>
-              <p>
-                2025 kontenjanları doldu, şimdi 2026 yazı için harekete geç. Çalış, gez, kazan!
-              </p>
+        <div className="container mx-auto px-4 z-10 py-20">
+          <div className="max-w-6xl mx-auto text-center">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-8 border border-white/30 animate-bounce-slow">
+              <span className="text-2xl">🔥</span>
+              <span className="text-white font-bold text-sm md:text-base">2025 Kontenjanları Doldu!</span>
             </div>
 
-            {/* Call to Action */}
-            <div className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-bold text-base md:text-lg shadow-2xl animate-pulse">
-              <span>🎯</span>
-              <span>Erken kayıt fırsatlarını kaçırma!</span>
+            {/* Main Title - Split Design */}
+            <div className="mb-8">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-4 leading-none">
+                <span className="text-white drop-shadow-2xl block">WORK &</span>
+                <span className="text-yellow-300 drop-shadow-2xl block -mt-2">TRAVEL</span>
+                <span className="text-white text-6xl sm:text-7xl md:text-8xl lg:text-9xl drop-shadow-2xl block -mt-4">2026</span>
+              </h1>
+            </div>
+
+            {/* Subtitle with Animation */}
+            <div className="relative inline-block mb-10">
+              <div className="absolute inset-0 bg-yellow-300 blur-xl opacity-50 animate-pulse"></div>
+              <h2 className="relative text-3xl md:text-5xl lg:text-6xl font-black text-white drop-shadow-xl bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent animate-gradient">
+                Kayıtları Başladı! 🎉
+              </h2>
+            </div>
+
+            {/* Benefits Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 max-w-4xl mx-auto">
+              {/* Benefit 1 */}
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:scale-105 transition-transform duration-300">
+                <div className="text-4xl mb-3">💵</div>
+                <div className="text-white font-bold text-lg mb-2">100 USD İndirim</div>
+                <div className="text-white/80 text-sm">Erken Kayıt Avantajı</div>
+              </div>
+
+              {/* Benefit 2 */}
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:scale-105 transition-transform duration-300">
+                <div className="text-4xl mb-3">💼</div>
+                <div className="text-white font-bold text-lg mb-2">İş Garantisi</div>
+                <div className="text-white/80 text-sm">En İyi İşler Sizin</div>
+              </div>
+
+              {/* Benefit 3 */}
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:scale-105 transition-transform duration-300">
+                <div className="text-4xl mb-3">🎯</div>
+                <div className="text-white font-bold text-lg mb-2">Öncelikli Yerleştirme</div>
+                <div className="text-white/80 text-sm">Erken Başvuru Avantajı</div>
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button className="group relative px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 font-black text-lg rounded-full shadow-2xl hover:shadow-yellow-500/50 transform hover:scale-105 transition-all duration-300">
+                <span className="relative z-10 flex items-center gap-2">
+                  <span>🚀</span>
+                  <span>HEMEN BAŞVUR</span>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-orange-400 rounded-full opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300"></div>
+              </button>
+
+              <button className="px-8 py-4 bg-white/20 backdrop-blur-md border-2 border-white text-white font-bold text-lg rounded-full hover:bg-white/30 transition-all duration-300">
+                <span className="flex items-center gap-2">
+                  <span>📞</span>
+                  <span>BİLGİ AL</span>
+                </span>
+              </button>
+            </div>
+
+            {/* Trust Badge */}
+            <div className="mt-12 inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20">
+              <div className="flex -space-x-2">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-white"></div>
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-green-600 border-2 border-white"></div>
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 border-2 border-white"></div>
+              </div>
+              <span className="text-white text-sm font-semibold">
+                <span className="text-yellow-300">500+</span> Öğrenci Katıldı
+              </span>
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
-          <div className="w-8 h-12 rounded-full border-2 border-white/50 flex items-start justify-center p-2">
-            <div className="w-1 h-3 bg-white rounded-full"></div>
+        {/* Scroll Indicator - Modern */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+          <div className="flex flex-col items-center gap-2 animate-bounce">
+            <span className="text-white/60 text-sm font-medium">Keşfet</span>
+            <div className="w-6 h-10 rounded-full border-2 border-white/40 flex items-start justify-center p-1.5">
+              <div className="w-1 h-3 bg-white/60 rounded-full animate-scroll"></div>
+            </div>
           </div>
         </div>
       </section>
