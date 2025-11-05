@@ -9,10 +9,12 @@ import { TestimonialsCarousel } from "@/components/work-travel/testimonials-caro
 import { Accreditations } from "@/components/work-travel/accreditations";
 import { DraggableCardContainer, DraggableCardBody } from "@/components/ui/draggable-card";
 import { CallNowModal } from "@/components/forms/call-now-modal";
+import { InfoFormModal } from "@/components/forms/info-form-modal";
 import { CheckCircle2 } from "lucide-react";
 
 export default function WorkTravelPage() {
   const [isCallNowModalOpen, setIsCallNowModalOpen] = useState(false);
+  const [isFormModalOpen, setIsFormModalOpen] = useState(false);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -41,17 +43,35 @@ export default function WorkTravelPage() {
     }
     // On mobile, let the link work normally
   };
-  const reasons = [
-    "2-4 ay Amerika'da çalışma fırsatı",
-    "1 ay seyahat izni ile ABD'yi keşfet",
-    "İngilizce pratiği ve dil gelişimi",
-    "Uluslararası iş deneyimi kazan",
-    "CV'ne değer kat",
-    "Farklı kültürlerden insanlarla tanış",
-    "Bağımsızlık ve özgüven kazan",
-    "Yeni arkadaşlıklar kur",
-    "Amerika'yı keşfet ve deneyimle",
-    "Çalışarak para kazan ve seyahat et"
+
+  const lifeguardReasons = [
+    "Saatlik $15-20 arası yüksek ücret + bahşiş",
+    "Güneşli ve keyifli çalışma ortamı",
+    "Ücretsiz Lifeguard sertifikası",
+    "Hafta sonları ve tatillerde çalışma imkanı",
+    "Plaj ve havuz başında aktif iş deneyimi",
+    "Can kurtarma becerilerini geliştirme",
+    "Amerika'nın en güzel sahillerinde çalışma",
+    "Yüzme ve spor aktivitelerine yakın olma"
+  ];
+
+  const lifeguardRequirements = [
+    {
+      title: "Yüzme Yeteneği",
+      description: "İyi yüzme bilgisi gereklidir. Programda ücretsiz lifeguard sertifika eğitimi verilir."
+    },
+    {
+      title: "Fiziksel Kondisyon",
+      description: "Aktif ve fiziksel olarak yoğun bir iş olduğu için iyi fiziksel kondisyon şarttır."
+    },
+    {
+      title: "Güneşe Dayanıklılık",
+      description: "Günde 8-10 saat açık havada çalışacağınız için güneşe ve sıcağa karşı dirençli olmalısınız."
+    },
+    {
+      title: "Sorumlu Kişilik",
+      description: "Can güvenliğinden sorumlu olacağınız için dikkatli ve sorumlu bir kişiliğe sahip olmalısınız."
+    }
   ];
 
   return (
@@ -178,7 +198,10 @@ export default function WorkTravelPage() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <button className="group relative px-10 py-5 bg-white hover:bg-gray-50 text-cyan-600 font-black text-xl rounded-2xl shadow-2xl hover:shadow-white/50 transform hover:scale-110 transition-all duration-300 overflow-hidden">
+              <button
+                onClick={() => setIsFormModalOpen(true)}
+                className="group relative px-10 py-5 bg-white hover:bg-gray-50 text-cyan-600 font-black text-xl rounded-2xl shadow-2xl hover:shadow-white/50 transform hover:scale-110 transition-all duration-300 overflow-hidden"
+              >
                 <span className="relative z-10 flex items-center gap-3">
                   <svg className="w-7 h-7 group-hover:rotate-12 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2"/>
@@ -188,7 +211,10 @@ export default function WorkTravelPage() {
                 </span>
               </button>
 
-              <button className="px-10 py-5 bg-white/20 backdrop-blur-md border-2 border-white text-white font-bold text-xl rounded-2xl hover:bg-white/30 transition-all duration-300">
+              <button
+                onClick={() => setIsCallNowModalOpen(true)}
+                className="px-10 py-5 bg-white/20 backdrop-blur-md border-2 border-white text-white font-bold text-xl rounded-2xl hover:bg-white/30 transition-all duration-300"
+              >
                 <span className="flex items-center gap-3">
                   <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
@@ -222,36 +248,111 @@ export default function WorkTravelPage() {
       </section>
 
       {/* Main Content - 2 Column Layout */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-gradient-to-b from-white to-cyan-50/30">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Left Column - Why Join */}
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                WORK AND TRAVEL PROGRAMINA<br/>
-                NEDEN KATILMALISINIZ?
-              </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-7xl mx-auto">
+            {/* Left Column - Why Become a Lifeguard */}
+            <div className="bg-white rounded-3xl shadow-xl p-8 md:p-10 border border-cyan-100">
+              {/* Header */}
+              <div className="mb-8">
+                <div className="inline-flex items-center gap-2 bg-cyan-500/10 text-cyan-600 px-4 py-2 rounded-full font-semibold text-sm mb-4">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2"/>
+                    <circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" strokeWidth="2"/>
+                  </svg>
+                  <span>En Popüler İş</span>
+                </div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 mb-4">
+                  NEDEN LIFEGUARD<br/>
+                  OLMALIYIM?
+                </h2>
+                <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+                  Lifeguard işi, Work & Travel programının en çok tercih edilen ve en kazançlı işlerinden biridir.
+                </p>
+              </div>
 
-              <p className="text-gray-700 text-base mb-6 leading-relaxed">
-                Work and Travel her üniversite öğrencisinin en az bir kez yaşaması gereken eşsiz fırsatlarla dolu, unutulmayacak bir deneyimdir!
-              </p>
-
-              <div className="space-y-2 mb-6">
-                {reasons.map((reason, index) => (
+              {/* Reasons List */}
+              <div className="space-y-3">
+                {lifeguardReasons.map((reason, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-2 py-1.5 rounded-lg hover:bg-gray-50 transition-colors"
+                    className="group flex items-start gap-4 p-4 rounded-2xl bg-gradient-to-r from-cyan-50/50 to-blue-50/50 hover:from-cyan-100/70 hover:to-blue-100/70 transition-all duration-300 border border-cyan-100/50 hover:border-cyan-200 hover:shadow-md"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 text-sm">{reason}</span>
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <CheckCircle2 className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="text-gray-700 text-sm md:text-base font-medium pt-1">{reason}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Right Column - Form */}
-            <div className="lg:sticky lg:top-24">
-              <WorkTravelForm />
+            {/* Right Column - Requirements & Info */}
+            <div className="bg-white rounded-3xl shadow-xl p-8 md:p-10 border border-blue-100">
+              {/* Header */}
+              <div className="mb-8">
+                <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-600 px-4 py-2 rounded-full font-semibold text-sm mb-4">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                  <span>Gereksinimler</span>
+                </div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 mb-4">
+                  LIFEGUARD İÇİN<br/>
+                  GEREKLİ ŞARTLAR
+                </h2>
+                <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+                  Lifeguard olarak çalışabilmek için aşağıdaki özelliklere sahip olmanız önerilir.
+                </p>
+              </div>
+
+              {/* Requirements Cards */}
+              <div className="space-y-6">
+                {lifeguardRequirements.map((req, index) => (
+                  <div
+                    key={index}
+                    className="group relative p-6 rounded-2xl bg-gradient-to-br from-blue-50/70 to-indigo-50/70 hover:from-blue-100 hover:to-indigo-100 transition-all duration-300 border border-blue-100 hover:border-blue-200 hover:shadow-lg"
+                  >
+                    {/* Number Badge */}
+                    <div className="absolute -top-3 -right-3 w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-white font-black text-lg">{index + 1}</span>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      {/* Icon */}
+                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow-md flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1">
+                        <h3 className="text-lg md:text-xl font-black text-gray-900 mb-2">
+                          {req.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                          {req.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA Button */}
+              <div className="mt-8 pt-8 border-t border-blue-100">
+                <button
+                  onClick={() => setIsFormModalOpen(true)}
+                  className="w-full bg-gradient-to-r from-cyan-500 via-blue-500 to-blue-600 hover:from-cyan-600 hover:via-blue-600 hover:to-blue-700 text-white font-black text-lg py-5 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3"
+                >
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2"/>
+                    <circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" strokeWidth="2"/>
+                  </svg>
+                  <span>BAŞVURU FORMU</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -565,7 +666,11 @@ export default function WorkTravelPage() {
         </div>
       </section>
 
-      {/* Call Now Modal - Desktop only */}
+      {/* Modals */}
+      <InfoFormModal
+        isOpen={isFormModalOpen}
+        onClose={() => setIsFormModalOpen(false)}
+      />
       <CallNowModal
         isOpen={isCallNowModalOpen}
         onClose={() => setIsCallNowModalOpen(false)}
