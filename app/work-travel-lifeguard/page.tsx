@@ -81,25 +81,27 @@ export default function WorkTravelPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {/* Hero Section - Lifeguard Themed */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-cyan-500 via-blue-500 to-blue-600">
-        {/* Animated Water Wave Pattern */}
-        <div className="absolute inset-0 opacity-20">
-          <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="water-wave" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                <path d="M0 50 Q 25 25, 50 50 T 100 50" stroke="white" strokeWidth="2" fill="none" opacity="0.3"/>
-                <path d="M0 70 Q 25 45, 50 70 T 100 70" stroke="white" strokeWidth="2" fill="none" opacity="0.2"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#water-wave)" className="animate-pulse"/>
-          </svg>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/workandtravel/lifeGuards.jpg"
+            alt="Lifeguard Work & Travel"
+            fill
+            className="object-cover object-center"
+            quality={90}
+            priority
+            sizes="100vw"
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/70 via-blue-600/60 to-blue-700/70"></div>
         </div>
 
         {/* Floating Lifeguard Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1]">
           {/* Lifebuoy */}
           <div className="absolute top-1/4 right-20 animate-float">
-            <svg className="w-20 h-20 text-red-500 opacity-30" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-20 h-20 text-red-400 opacity-40" fill="currentColor" viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="3"/>
               <circle cx="12" cy="12" r="6" fill="none" stroke="white" strokeWidth="2"/>
               <rect x="11" y="2" width="2" height="4" fill="white"/>
@@ -111,7 +113,7 @@ export default function WorkTravelPage() {
 
           {/* Whistle */}
           <div className="absolute top-1/3 left-10 animate-float animation-delay-2000">
-            <svg className="w-16 h-16 text-yellow-400 opacity-30" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-16 h-16 text-yellow-300 opacity-40" fill="currentColor" viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="2" fill="none"/>
               <circle cx="12" cy="12" r="3" fill="currentColor"/>
               <path d="M18 12 L24 12" stroke="currentColor" strokeWidth="2"/>
@@ -120,21 +122,18 @@ export default function WorkTravelPage() {
 
           {/* Swimming Icon */}
           <div className="absolute bottom-1/4 left-1/4 animate-float animation-delay-4000">
-            <svg className="w-20 h-20 text-white opacity-20" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-20 h-20 text-white opacity-30" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20.5 7c.8 0 1.5-.7 1.5-1.5S21.3 4 20.5 4 19 4.7 19 5.5 19.7 7 20.5 7zM13.5 9.5c0 .3-.2.5-.5.5s-.5-.2-.5-.5.2-.5.5-.5.5.2.5.5zM7 14c1.66 0 3-1.34 3-3 0-.35-.07-.69-.18-1H7v4zm13 0c-1.66 0-3-1.34-3-3 0-.35.07-.69.18-1H20v4zM23 18c-.62-1.27-1.52-2.4-2.61-3.33-.14-.12-.32-.15-.49-.08-.16.07-.3.21-.35.39-.14.5-.38.96-.72 1.33.39.24.73.54 1.03.89.09.11.14.25.14.39 0 .36-.29.65-.65.65-.17 0-.33-.07-.45-.18-.24-.23-.51-.43-.81-.59-.3.16-.57.36-.81.59-.12.11-.28.18-.45.18-.36 0-.65-.29-.65-.65 0-.14.05-.28.14-.39.3-.35.64-.65 1.03-.89-.34-.37-.58-.83-.72-1.33-.05-.18-.19-.32-.35-.39-.17-.07-.35-.04-.49.08C13.52 15.6 12.62 16.73 12 18H1c-.55 0-1 .45-1 1s.45 1 1 1h22c.55 0 1-.45 1-1s-.45-1-1-1z"/>
             </svg>
           </div>
 
           {/* Sun */}
           <div className="absolute top-10 right-1/4 animate-pulse">
-            <svg className="w-24 h-24 text-yellow-300 opacity-40" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-24 h-24 text-yellow-200 opacity-50" fill="currentColor" viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="5" fill="currentColor"/>
               <path d="M12 1v3m0 16v3M3.22 3.22l2.12 2.12m13.44 13.44l2.12 2.12M1 12h3m16 0h3M3.22 20.78l2.12-2.12M18.66 5.34l2.12-2.12"/>
             </svg>
           </div>
-
-          {/* Wave decorations */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/10 to-transparent"></div>
         </div>
 
         {/* Content */}
