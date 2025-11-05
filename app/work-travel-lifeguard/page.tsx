@@ -331,11 +331,11 @@ export default function WorkTravelPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/workandtravel/sponsorbg.jpg"
+            src="/workandtravel/section.webp"
             alt="Background"
             fill
             className="object-cover object-center"
-            quality={60}
+            quality={75}
             sizes="100vw"
           />
           {/* Gradient Overlay for readability */}
