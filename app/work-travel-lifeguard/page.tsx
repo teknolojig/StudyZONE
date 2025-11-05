@@ -326,6 +326,221 @@ export default function WorkTravelPage() {
         </div>
       </section>
 
+      {/* Early Registration & Employers Section */}
+      <section className="py-16 md:py-20 bg-white overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Draggable Cards */}
+            <div>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 mb-6">
+                ERKEN KAYIT<br/>
+                AVANTAJLARINI KAÇIRMAYIN
+              </h2>
+              <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+                Lifeguard pozisyonlarına erken kayıt olun, hem 100 USD indirimden faydalanın hem de en iyi havuz ve plajlara yerleştirilme imkanından yararlanın!
+              </p>
+
+              {/* Draggable Cards Container */}
+              <DraggableCardContainer className="h-[400px] w-full max-w-[400px]">
+                {/* Card 1 */}
+                <DraggableCardBody
+                  className="absolute left-1/2 -translate-x-[150px] top-0"
+                  rotate="-8deg"
+                >
+                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden w-56 border-8 border-white">
+                    <div className="relative h-72">
+                      <Image
+                        src="/workandtravel/lifeguard/005-2-scaled.webp"
+                        alt="Lifeguard Advantage 1"
+                        fill
+                        className="object-cover"
+                        quality={75}
+                        sizes="224px"
+                      />
+                    </div>
+                  </div>
+                </DraggableCardBody>
+
+                {/* Card 2 */}
+                <DraggableCardBody
+                  className="absolute left-1/2 -translate-x-[110px] top-6"
+                  rotate="5deg"
+                >
+                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden w-56 border-8 border-white">
+                    <div className="relative h-72">
+                      <Image
+                        src="/workandtravel/lifeguard/gallery-8.webp"
+                        alt="Lifeguard Advantage 2"
+                        fill
+                        className="object-cover"
+                        quality={75}
+                        sizes="224px"
+                      />
+                    </div>
+                  </div>
+                </DraggableCardBody>
+
+                {/* Card 3 - Discount Badge */}
+                <DraggableCardBody
+                  className="absolute left-1/2 -translate-x-[70px] top-12"
+                  rotate="-3deg"
+                >
+                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden w-56 border-8 border-white">
+                    <div className="relative h-72 bg-gradient-to-br from-cyan-500 via-blue-500 to-blue-600 flex items-center justify-center">
+                      <div className="text-center text-white p-6">
+                        <svg className="w-20 h-20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <p className="font-black text-2xl mb-2">100 USD</p>
+                        <p className="text-lg font-bold">İndirim</p>
+                        <p className="text-sm mt-2 opacity-90">Erken Kayıt Fırsatı</p>
+                      </div>
+                    </div>
+                  </div>
+                </DraggableCardBody>
+
+                {/* Card 4 */}
+                <DraggableCardBody
+                  className="absolute left-1/2 -translate-x-[30px] top-18"
+                  rotate="7deg"
+                >
+                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden w-56 border-8 border-white">
+                    <div className="relative h-72">
+                      <Image
+                        src="/workandtravel/lifeguard/service-1.webp"
+                        alt="Lifeguard Advantage 4"
+                        fill
+                        className="object-cover"
+                        quality={75}
+                        sizes="224px"
+                      />
+                    </div>
+                  </div>
+                </DraggableCardBody>
+
+                {/* Card 5 */}
+                <DraggableCardBody
+                  className="absolute left-1/2 translate-x-[10px] top-24"
+                  rotate="-5deg"
+                >
+                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden w-56 border-8 border-white">
+                    <div className="relative h-72">
+                      <Image
+                        src="/workandtravel/lifeguard/service-4.webp"
+                        alt="Lifeguard Advantage 5"
+                        fill
+                        className="object-cover"
+                        quality={75}
+                        sizes="224px"
+                      />
+                    </div>
+                  </div>
+                </DraggableCardBody>
+              </DraggableCardContainer>
+            </div>
+
+            {/* Right Column - Employers Info */}
+            <div className="space-y-8">
+              <div>
+                <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-600 px-4 py-2 rounded-full font-semibold text-sm mb-6">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                  <span>Güvenilir İşverenler</span>
+                </div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 mb-6">
+                  ÖNDE GELEN<br/>
+                  LIFEGUARD İŞVERENLERİ
+                </h2>
+                <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
+                  Amerika'nın en prestijli havuz ve plaj işletmeleriyle çalışma fırsatı.
+                </p>
+              </div>
+
+              {/* High Sierra Pools */}
+              <div className="group bg-gradient-to-br from-cyan-50 to-blue-50 rounded-3xl p-8 border border-cyan-100 hover:border-cyan-300 hover:shadow-2xl transition-all duration-300">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-2">
+                      High Sierra Pools
+                    </h3>
+                    <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mb-4"></div>
+                  </div>
+                </div>
+                <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4">
+                  California'nın en büyük havuz yönetim şirketlerinden biri. Tahoe ve çevresindeki lüks oteller ve tatil köylerinde çalışma imkanı sunar.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-sm text-gray-600">
+                    <svg className="w-5 h-5 text-cyan-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <span>Saatlik $16-20 arası ücret</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-sm text-gray-600">
+                    <svg className="w-5 h-5 text-cyan-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <span>Lake Tahoe bölgesinde konaklama</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-sm text-gray-600">
+                    <svg className="w-5 h-5 text-cyan-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <span>Full-time çalışma garantisi</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Premier Aquatics */}
+              <div className="group bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100 hover:border-blue-300 hover:shadow-2xl transition-all duration-300">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-2">
+                      Premier Aquatics
+                    </h3>
+                    <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mb-4"></div>
+                  </div>
+                </div>
+                <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4">
+                  ABD'nin birçok eyaletinde faaliyet gösteren profesyonel havuz yönetim firması. Yüzlerce havuz ve plaj lokasyonunda istihdam imkanı.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2 text-sm text-gray-600">
+                    <svg className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <span>Saatlik $15-18 arası ücret</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-sm text-gray-600">
+                    <svg className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <span>Çoklu eyalet seçenekleri</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-sm text-gray-600">
+                    <svg className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <span>Profesyonel eğitim programı</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why StudyZONE Section */}
       <WhyStudyZoneV3 />
 
