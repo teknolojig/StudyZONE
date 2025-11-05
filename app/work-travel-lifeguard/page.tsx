@@ -94,7 +94,7 @@ export default function WorkTravelPage() {
             sizes="100vw"
           />
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/70 via-blue-600/60 to-blue-700/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/70 via-cyan-600/60 to-cyan-700/70"></div>
         </div>
 
         {/* Floating Lifeguard Elements */}
@@ -244,9 +244,9 @@ export default function WorkTravelPage() {
                 {lifeguardReasons.map((reason, index) => (
                   <div
                     key={index}
-                    className="group flex items-start gap-4 p-4 rounded-2xl bg-gradient-to-r from-cyan-50/50 to-blue-50/50 hover:from-cyan-100/70 hover:to-blue-100/70 transition-all duration-300 border border-cyan-100/50 hover:border-cyan-200 hover:shadow-md"
+                    className="group flex items-start gap-4 p-4 rounded-2xl bg-gradient-to-r from-cyan-50/50 to-cyan-50/50 hover:from-cyan-100/70 hover:to-cyan-100/70 transition-all duration-300 border border-cyan-100/50 hover:border-cyan-200 hover:shadow-md"
                   >
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                       <CheckCircle2 className="w-5 h-5 text-white" />
                     </div>
                     <span className="text-gray-700 text-sm md:text-base font-medium pt-1">{reason}</span>
@@ -256,10 +256,10 @@ export default function WorkTravelPage() {
             </div>
 
             {/* Right Column - Requirements & Info */}
-            <div className="bg-white rounded-3xl shadow-xl p-8 md:p-10 border border-blue-100">
+            <div className="bg-white rounded-3xl shadow-xl p-8 md:p-10 border border-cyan-100">
               {/* Header */}
               <div className="mb-8">
-                <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-600 px-4 py-2 rounded-full font-semibold text-sm mb-4">
+                <div className="inline-flex items-center gap-2 bg-cyan-500/10 text-cyan-600 px-4 py-2 rounded-full font-semibold text-sm mb-4">
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                   </svg>
@@ -279,17 +279,17 @@ export default function WorkTravelPage() {
                 {lifeguardRequirements.map((req, index) => (
                   <div
                     key={index}
-                    className="group relative p-6 rounded-2xl bg-gradient-to-br from-blue-50/70 to-indigo-50/70 hover:from-blue-100 hover:to-indigo-100 transition-all duration-300 border border-blue-100 hover:border-blue-200 hover:shadow-lg"
+                    className="group relative p-6 rounded-2xl bg-gradient-to-br from-cyan-50/70 to-cyan-50/70 hover:from-cyan-100 hover:to-cyan-100 transition-all duration-300 border border-cyan-100 hover:border-cyan-200 hover:shadow-lg"
                   >
                     {/* Number Badge */}
-                    <div className="absolute -top-3 -right-3 w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+                    <div className="absolute -top-3 -right-3 w-10 h-10 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
                       <span className="text-white font-black text-lg">{index + 1}</span>
                     </div>
 
                     <div className="flex items-start gap-4">
                       {/* Icon */}
                       <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow-md flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-6 h-6 text-cyan-600" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
                       </div>
@@ -309,10 +309,10 @@ export default function WorkTravelPage() {
               </div>
 
               {/* CTA Button */}
-              <div className="mt-8 pt-8 border-t border-blue-100">
+              <div className="mt-8 pt-8 border-t border-cyan-100">
                 <button
                   onClick={() => setIsFormModalOpen(true)}
-                  className="w-full bg-gradient-to-r from-cyan-500 via-blue-500 to-blue-600 hover:from-cyan-600 hover:via-blue-600 hover:to-blue-700 text-white font-black text-lg py-5 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3"
+                  className="w-full bg-gradient-to-r from-cyan-500 via-cyan-500 to-cyan-600 hover:from-cyan-600 hover:via-cyan-600 hover:to-cyan-700 text-white font-black text-lg py-5 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2"/>
@@ -335,11 +335,11 @@ export default function WorkTravelPage() {
             alt="Background"
             fill
             className="object-cover object-center"
-            quality={75}
+            quality={85}
             sizes="100vw"
           />
           {/* Gradient Overlay for readability */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-cyan-50/90 to-blue-50/95"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-white/85 via-cyan-50/70 to-cyan-100/80"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -400,7 +400,7 @@ export default function WorkTravelPage() {
                   rotate="-2deg"
                 >
                   <div className="bg-white rounded-xl shadow-2xl overflow-hidden w-48 border-6 border-white">
-                    <div className="relative h-64 bg-gradient-to-br from-cyan-500 via-blue-500 to-blue-600 flex items-center justify-center">
+                    <div className="relative h-64 bg-gradient-to-br from-cyan-500 via-cyan-500 to-cyan-600 flex items-center justify-center">
                       <div className="text-center text-white p-4">
                         <svg className="w-16 h-16 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -660,7 +660,7 @@ export default function WorkTravelPage() {
                   rotate="6deg"
                 >
                   <div className="bg-white rounded-xl shadow-xl overflow-hidden w-52 border-8 border-white">
-                    <div className="relative h-64 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                    <div className="relative h-64 bg-gradient-to-br from-cyan-400 to-cyan-600 flex items-center justify-center">
                       <div className="text-center text-white">
                         <svg className="w-16 h-16 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
