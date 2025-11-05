@@ -327,16 +327,30 @@ export default function WorkTravelPage() {
       </section>
 
       {/* Early Registration & Employers Section */}
-      <section className="py-16 md:py-20 bg-white overflow-hidden">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 md:py-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/workandtravel/sponsorbg.jpg"
+            alt="Background"
+            fill
+            className="object-cover object-center"
+            quality={60}
+            sizes="100vw"
+          />
+          {/* Gradient Overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-cyan-50/90 to-blue-50/95"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Draggable Cards */}
             <div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 mb-6">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 mb-6 drop-shadow-sm">
                 ERKEN KAYIT<br/>
                 AVANTAJLARINI KAÇIRMAYIN
               </h2>
-              <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-800 mb-8 leading-relaxed drop-shadow-sm">
                 Lifeguard pozisyonlarına erken kayıt olun, hem 100 USD indirimden faydalanın hem de en iyi havuz ve plajlara yerleştirilme imkanından yararlanın!
               </p>
 
@@ -442,23 +456,23 @@ export default function WorkTravelPage() {
             {/* Right Column - Employers Info */}
             <div className="space-y-8">
               <div>
-                <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-600 px-4 py-2 rounded-full font-semibold text-sm mb-6">
+                <div className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-full font-semibold text-sm mb-6 shadow-lg">
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                   </svg>
                   <span>Güvenilir İşverenler</span>
                 </div>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 mb-6">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 mb-6 drop-shadow-sm">
                   ÖNDE GELEN<br/>
                   LIFEGUARD İŞVERENLERİ
                 </h2>
-                <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
+                <p className="text-gray-800 text-base md:text-lg leading-relaxed mb-8 drop-shadow-sm font-medium">
                   Amerika'nın en prestijli havuz ve plaj işletmeleriyle çalışma fırsatı.
                 </p>
               </div>
 
               {/* High Sierra Pools */}
-              <div className="group bg-gradient-to-br from-cyan-50 to-blue-50 rounded-3xl p-8 border border-cyan-100 hover:border-cyan-300 hover:shadow-2xl transition-all duration-300">
+              <div className="group bg-white/95 backdrop-blur-sm rounded-3xl p-8 border-2 border-cyan-200 hover:border-cyan-400 hover:shadow-2xl transition-all duration-300">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                     <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -498,7 +512,7 @@ export default function WorkTravelPage() {
               </div>
 
               {/* Premier Aquatics */}
-              <div className="group bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100 hover:border-blue-300 hover:shadow-2xl transition-all duration-300">
+              <div className="group bg-white/95 backdrop-blur-sm rounded-3xl p-8 border-2 border-blue-200 hover:border-blue-400 hover:shadow-2xl transition-all duration-300">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                     <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
