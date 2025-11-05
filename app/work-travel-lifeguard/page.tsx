@@ -355,97 +355,97 @@ export default function WorkTravelPage() {
               </p>
 
               {/* Draggable Cards Container */}
-              <DraggableCardContainer className="h-[400px] w-full max-w-[400px]">
-                {/* Card 1 */}
+              <DraggableCardContainer className="h-[380px] w-full">
+                {/* Card 1 - Far Left */}
                 <DraggableCardBody
-                  className="absolute left-1/2 -translate-x-[150px] top-0"
-                  rotate="-8deg"
+                  className="absolute left-0 top-12"
+                  rotate="-6deg"
                 >
-                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden w-56 border-8 border-white">
-                    <div className="relative h-72">
+                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden w-48 border-6 border-white">
+                    <div className="relative h-64">
                       <Image
                         src="/workandtravel/lifeguard/005-2-scaled.webp"
                         alt="Lifeguard Advantage 1"
                         fill
                         className="object-cover"
                         quality={75}
-                        sizes="224px"
+                        sizes="192px"
                       />
                     </div>
                   </div>
                 </DraggableCardBody>
 
-                {/* Card 2 */}
+                {/* Card 2 - Left */}
                 <DraggableCardBody
-                  className="absolute left-1/2 -translate-x-[110px] top-6"
-                  rotate="5deg"
+                  className="absolute left-[18%] top-0"
+                  rotate="4deg"
                 >
-                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden w-56 border-8 border-white">
-                    <div className="relative h-72">
+                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden w-48 border-6 border-white">
+                    <div className="relative h-64">
                       <Image
                         src="/workandtravel/lifeguard/gallery-8.webp"
                         alt="Lifeguard Advantage 2"
                         fill
                         className="object-cover"
                         quality={75}
-                        sizes="224px"
+                        sizes="192px"
                       />
                     </div>
                   </div>
                 </DraggableCardBody>
 
-                {/* Card 3 - Discount Badge */}
+                {/* Card 3 - Center (Discount Badge) */}
                 <DraggableCardBody
-                  className="absolute left-1/2 -translate-x-[70px] top-12"
-                  rotate="-3deg"
+                  className="absolute left-1/2 -translate-x-1/2 top-8"
+                  rotate="-2deg"
                 >
-                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden w-56 border-8 border-white">
-                    <div className="relative h-72 bg-gradient-to-br from-cyan-500 via-blue-500 to-blue-600 flex items-center justify-center">
-                      <div className="text-center text-white p-6">
-                        <svg className="w-20 h-20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden w-48 border-6 border-white">
+                    <div className="relative h-64 bg-gradient-to-br from-cyan-500 via-blue-500 to-blue-600 flex items-center justify-center">
+                      <div className="text-center text-white p-4">
+                        <svg className="w-16 h-16 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <p className="font-black text-2xl mb-2">100 USD</p>
+                        <p className="font-black text-2xl mb-1">100 USD</p>
                         <p className="text-lg font-bold">İndirim</p>
-                        <p className="text-sm mt-2 opacity-90">Erken Kayıt Fırsatı</p>
+                        <p className="text-xs mt-2 opacity-90">Erken Kayıt Fırsatı</p>
                       </div>
                     </div>
                   </div>
                 </DraggableCardBody>
 
-                {/* Card 4 */}
+                {/* Card 4 - Right */}
                 <DraggableCardBody
-                  className="absolute left-1/2 -translate-x-[30px] top-18"
-                  rotate="7deg"
+                  className="absolute right-[18%] top-6"
+                  rotate="5deg"
                 >
-                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden w-56 border-8 border-white">
-                    <div className="relative h-72">
+                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden w-48 border-6 border-white">
+                    <div className="relative h-64">
                       <Image
                         src="/workandtravel/lifeguard/service-1.webp"
                         alt="Lifeguard Advantage 4"
                         fill
                         className="object-cover"
                         quality={75}
-                        sizes="224px"
+                        sizes="192px"
                       />
                     </div>
                   </div>
                 </DraggableCardBody>
 
-                {/* Card 5 */}
+                {/* Card 5 - Far Right */}
                 <DraggableCardBody
-                  className="absolute left-1/2 translate-x-[10px] top-24"
-                  rotate="-5deg"
+                  className="absolute right-0 top-16"
+                  rotate="-4deg"
                 >
-                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden w-56 border-8 border-white">
-                    <div className="relative h-72">
+                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden w-48 border-6 border-white">
+                    <div className="relative h-64">
                       <Image
                         src="/workandtravel/lifeguard/service-4.webp"
                         alt="Lifeguard Advantage 5"
                         fill
                         className="object-cover"
                         quality={75}
-                        sizes="224px"
+                        sizes="192px"
                       />
                     </div>
                   </div>
