@@ -17,7 +17,7 @@ export function Topbar() {
         <nav className="hidden md:flex items-center gap-4">
           {topLinks.map((link) => (
             <Link
-              key={link.href}
+              key={link.label}
               href={link.href}
               className="hover:text-primary transition-colors"
             >
