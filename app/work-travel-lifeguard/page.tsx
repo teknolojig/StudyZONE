@@ -168,26 +168,26 @@ export default function WorkTravelPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <button
                 onClick={() => setIsFormModalOpen(true)}
-                className="group relative px-10 py-5 bg-white hover:bg-gray-50 text-cyan-600 font-black text-xl rounded-2xl shadow-2xl hover:shadow-white/50 transform hover:scale-110 transition-all duration-300 overflow-hidden"
+                className="group px-8 py-3.5 bg-white hover:bg-gray-50 text-cyan-600 font-bold text-base rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-white/50"
               >
-                <span className="relative z-10 flex items-center gap-3">
-                  <svg className="w-7 h-7 group-hover:rotate-12 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+                <span className="flex items-center gap-2.5">
+                  <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2"/>
                     <circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" strokeWidth="2"/>
                   </svg>
-                  <span className="tracking-wide">LIFEGUARD BAŞVURU</span>
+                  <span>LIFEGUARD BAŞVURU</span>
                 </span>
               </button>
 
               <button
                 onClick={() => setIsCallNowModalOpen(true)}
-                className="px-10 py-5 bg-white/20 backdrop-blur-md border-2 border-white text-white font-bold text-xl rounded-2xl hover:bg-white/30 transition-all duration-300"
+                className="group px-8 py-3.5 bg-white hover:bg-gray-50 text-cyan-600 font-bold text-base rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-white/50"
               >
-                <span className="flex items-center gap-3">
-                  <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                <span className="flex items-center gap-2.5">
+                  <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                   </svg>
-                  <span className="tracking-wide">BİLGİ AL</span>
+                  <span>BİLGİ AL</span>
                 </span>
               </button>
             </div>
