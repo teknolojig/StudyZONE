@@ -85,7 +85,7 @@ export default function WorkTravelPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/workandtravel/lifeGuards.jpg"
+            src="/workandtravel/Hero.webp"
             alt="Lifeguard Work & Travel"
             fill
             className="object-cover object-center"
