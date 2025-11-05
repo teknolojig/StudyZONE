@@ -456,7 +456,7 @@ export default function WorkTravelPage() {
             {/* Right Column - Employers Info */}
             <div className="space-y-8">
               <div>
-                <div className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-full font-semibold text-sm mb-6 shadow-lg">
+                <div className="inline-flex items-center gap-2 bg-cyan-600 text-white px-4 py-2 rounded-full font-semibold text-sm mb-6 shadow-lg">
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                   </svg>
@@ -474,7 +474,7 @@ export default function WorkTravelPage() {
               {/* High Sierra Pools */}
               <div className="group bg-white/95 backdrop-blur-sm rounded-3xl p-8 border-2 border-cyan-200 hover:border-cyan-400 hover:shadow-2xl transition-all duration-300">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                     <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
                     </svg>
@@ -483,7 +483,7 @@ export default function WorkTravelPage() {
                     <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-2">
                       High Sierra Pools
                     </h3>
-                    <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mb-4"></div>
+                    <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-full mb-4"></div>
                   </div>
                 </div>
                 <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4">
@@ -512,9 +512,9 @@ export default function WorkTravelPage() {
               </div>
 
               {/* Premier Aquatics */}
-              <div className="group bg-white/95 backdrop-blur-sm rounded-3xl p-8 border-2 border-blue-200 hover:border-blue-400 hover:shadow-2xl transition-all duration-300">
+              <div className="group bg-white/95 backdrop-blur-sm rounded-3xl p-8 border-2 border-cyan-200 hover:border-cyan-400 hover:shadow-2xl transition-all duration-300">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-700 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                     <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
                     </svg>
@@ -523,7 +523,7 @@ export default function WorkTravelPage() {
                     <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-2">
                       Premier Aquatics
                     </h3>
-                    <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mb-4"></div>
+                    <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-cyan-700 rounded-full mb-4"></div>
                   </div>
                 </div>
                 <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4">
@@ -531,19 +531,19 @@ export default function WorkTravelPage() {
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2 text-sm text-gray-600">
-                    <svg className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-cyan-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                     </svg>
                     <span>Saatlik $15-18 arası ücret</span>
                   </li>
                   <li className="flex items-start gap-2 text-sm text-gray-600">
-                    <svg className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-cyan-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                     </svg>
                     <span>Çoklu eyalet seçenekleri</span>
                   </li>
                   <li className="flex items-start gap-2 text-sm text-gray-600">
-                    <svg className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-cyan-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                     </svg>
                     <span>Profesyonel eğitim programı</span>
