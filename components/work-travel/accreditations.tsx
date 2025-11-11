@@ -36,7 +36,7 @@ const accreditations: Accreditation[] = [
     logo: "/workandtravel/akredite/greenheart.jpg",
     title: "GREENHEART HAKKINDA",
     description: "Greenheart Exchange, ABD'de 1985'ten beri Amerikalıları uluslararası öğrencilerle buluşturan kültürel değişim programları sunmaktadır.\n\nGreenheart'ın çeşitli programları, bütün milletlerin insanları arasında kültürlerarası anlayışı ve diplomasiyi teşvik eder.\n\nGreenheart, kar amacı gütmeyen Greenheart International'ın bir bölümüdür. Work and Travel gibi bazı J-1 öğrenci değişim programlarının ABD Dışişleri Bakanlığı'nın belirlemiş olduğu sponsorluklarındandır.",
-    website: "https://www.greenheart-exchange.com/"
+    website: "https://greenheartexchange.org/"
   },
   {
     id: 4,
@@ -48,6 +48,14 @@ const accreditations: Accreditation[] = [
   },
   {
     id: 5,
+    name: "WYSE",
+    logo: "/workandtravel/akredite/wyse.webp",
+    title: "WYSE Travel Confederation",
+    description: "WYSE Travel Confederation, gençlik, öğrenci ve eğitim seyahati endüstrisinin küresel bir üyelik organizasyonudur.\n\nDünya çapında gençlerin ve öğrencilerin eğitim ve kültürel deneyimler yoluyla gelişmelerini destekleyen programlar sunmaktadır.\n\nEndüstri standartlarını belirlemek, en iyi uygulamaları paylaşmak ve gençlik seyahati sektöründe kalite ve güvenliği teşvik etmek için çalışmaktadır.",
+    website: "https://www.wysetc.org/"
+  },
+  {
+    id: 6,
     name: "Embassy",
     logo: "/workandtravel/akredite/embassy.jpg",
     title: "AMERİKAN KONSOLOSLUĞU",
@@ -85,8 +93,8 @@ export function Accreditations() {
           </div>
 
           {/* Accreditations Grid */}
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
               {accreditations.map((accreditation) => (
                 <button
                   key={accreditation.id}

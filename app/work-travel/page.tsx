@@ -7,6 +7,7 @@ import { WhyStudyZoneV3 } from "@/components/home/why-studyzone-v3";
 import { StatsCounter } from "@/components/home/stats-counter";
 import { TestimonialsCarousel } from "@/components/work-travel/testimonials-carousel";
 import { Accreditations } from "@/components/work-travel/accreditations";
+import { JobsCarousel } from "@/components/work-travel/jobs-carousel";
 import { DraggableCardContainer, DraggableCardBody } from "@/components/ui/draggable-card";
 import { CallNowModal } from "@/components/forms/call-now-modal";
 import { InfoFormModal } from "@/components/forms/info-form-modal";
@@ -258,13 +259,13 @@ export default function WorkTravelPage() {
       {/* Stats Counter Section */}
       <StatsCounter />
 
-      {/* CIEE Sponsor Section */}
-      <section className="relative min-h-[400px] flex items-center justify-center overflow-hidden py-20">
+      {/* Sponsors Section */}
+      <section className="relative min-h-[500px] flex items-center justify-center overflow-hidden py-20">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/workandtravel/sponsorbg.jpg"
-            alt="CIEE Sponsorlar"
+            alt="Sponsorlar"
             fill
             className="object-cover object-center"
             quality={60}
@@ -276,35 +277,88 @@ export default function WorkTravelPage() {
 
         {/* Content */}
         <div className="container mx-auto px-4 z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-center">
-            {/* Left - CIEE Logo (1/3) */}
-            <div className="flex justify-center md:justify-end">
-              <div className="bg-white rounded-lg p-6 md:p-8 shadow-xl inline-block">
-                <Image
-                  src="/workandtravel/ciee.png"
-                  alt="CIEE Logo"
-                  width={250}
-                  height={250}
-                  className="object-contain"
-                />
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              EN GÜÇLÜ SPONSORLARIN AYRICALIĞI İLE KATILIN !
+            </h2>
+            <p className="text-lg md:text-xl text-white mb-8 leading-relaxed max-w-4xl mx-auto">
+              Amerika'nın en köklü, en büyük ve en güçlü sponsorlarıyla çalışıyoruz. Onlarca yıllık tecrübeleri ve güçlü teknik altyapılarıyla, size en iyi Work & Travel deneyimini sunmak için yanınızdayız.
+            </p>
+          </div>
+
+          {/* Sponsor Logos Grid */}
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
+              {/* CIEE */}
+              <div className="bg-white rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                <div className="relative aspect-[16/9]">
+                  <Image
+                    src="/workandtravel/akredite/ciee.jpg"
+                    alt="CIEE"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+
+              {/* GeoVisions */}
+              <div className="bg-white rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                <div className="relative aspect-[16/9]">
+                  <Image
+                    src="/workandtravel/akredite/geovisions.jpg"
+                    alt="GeoVisions"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+
+              {/* Greenheart */}
+              <div className="bg-white rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                <div className="relative aspect-[16/9]">
+                  <Image
+                    src="/workandtravel/akredite/greenheart.jpg"
+                    alt="Greenheart"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+
+              {/* Janus */}
+              <div className="bg-white rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                <div className="relative aspect-[16/9]">
+                  <Image
+                    src="/workandtravel/akredite/janus.jpg"
+                    alt="Janus"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+
+              {/* WYSE */}
+              <div className="bg-white rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                <div className="relative aspect-[16/9]">
+                  <Image
+                    src="/workandtravel/akredite/wyse.webp"
+                    alt="WYSE"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
             </div>
+          </div>
 
-            {/* Right - Text Content (2/3) */}
-            <div className="md:col-span-2 text-white">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
-                EN GÜÇLÜ SPONSORLARIN AYRICALIĞI İLE KATILIN !
-              </h2>
-              <p className="text-lg md:text-xl mb-8 leading-relaxed">
-                CIEE, 60 yıllık tecrübesi ve çok güçlü teknik altyapısı ile sponsorluk yapma yetkisi olan en köklü, en büyük ve en güçlü kuruluştur.
-              </p>
-              <a
-                href="#form"
-                className="inline-block bg-white text-gray-900 font-bold px-6 py-2.5 rounded-lg hover:bg-gray-100 transition-colors shadow-lg text-sm"
-              >
-                SPONSORLAR HAKKINDA
-              </a>
-            </div>
+          {/* CTA Button */}
+          <div className="text-center mt-12">
+            <a
+              href="#form"
+              className="inline-block bg-white text-gray-900 font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors shadow-xl text-base"
+            >
+              SPONSORLAR HAKKINDA
+            </a>
           </div>
         </div>
       </section>
@@ -448,32 +502,8 @@ export default function WorkTravelPage() {
         </div>
       </section>
 
-      {/* Popular Jobs Section */}
-      <section className="relative min-h-[300px] flex items-center justify-center overflow-hidden py-16">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/workandtravel/isler.jpg"
-            alt="Popüler İşler"
-            fill
-            className="object-cover object-center"
-            quality={60}
-            sizes="100vw"
-          />
-          {/* Turquoise overlay */}
-          <div className="absolute inset-0 bg-[#01bbde]/70"></div>
-        </div>
-
-        {/* Content */}
-        <div className="container mx-auto px-4 z-10 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-            POPÜLER VE GENİŞ İŞ YELPAZESİ
-          </h2>
-          <p className="text-lg md:text-xl text-white">
-            Size ve kriterlerinize en uygun işe yerleştirme garantisi
-          </p>
-        </div>
-      </section>
+      {/* Popular Jobs Carousel */}
+      <JobsCarousel />
 
       {/* Testimonials Section */}
       <TestimonialsCarousel />

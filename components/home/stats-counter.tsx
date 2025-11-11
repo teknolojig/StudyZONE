@@ -101,6 +101,16 @@ export function StatsCounter() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
+        {/* Title */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            RAKAMLARA GÜVEN
+          </h2>
+          <p className="text-lg md:text-xl text-gray-700">
+            28 yıllık tecrübemiz ve binlerce mutlu öğrencimizle yanınızdayız
+          </p>
+        </div>
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat, index) => (
             <div
