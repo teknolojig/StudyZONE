@@ -154,7 +154,7 @@ export default function WorkTravelPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
                 onClick={() => setIsFormModalOpen(true)}
-                className="group px-8 py-3.5 bg-white hover:bg-gray-50 text-primary font-bold text-base rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-white/50"
+                className="group px-8 py-2.5 bg-white hover:bg-gray-50 text-primary font-bold text-base rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-white/50"
               >
                 <span className="flex items-center gap-2.5">
                   <Edit className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
@@ -164,7 +164,7 @@ export default function WorkTravelPage() {
 
               <button
                 onClick={() => setIsCallNowModalOpen(true)}
-                className="group px-8 py-3.5 bg-white hover:bg-gray-50 text-primary font-bold text-base rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-white/50"
+                className="group px-8 py-2.5 bg-white hover:bg-gray-50 text-primary font-bold text-base rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-white/50"
               >
                 <span className="flex items-center gap-2.5">
                   <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
