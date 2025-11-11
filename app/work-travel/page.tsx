@@ -134,7 +134,7 @@ export default function WorkTravelPage() {
 
             {/* Subtitle */}
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6 text-primary drop-shadow-xl">
-              Kayıtları Başladı!
+              Kayıtlar Tüm Hızıyla Devam Ediyor!
             </h2>
 
             {/* Description */}
@@ -143,14 +143,14 @@ export default function WorkTravelPage() {
                 Amerika seni bekliyor!
               </p>
               <p>
-                2025 kontenjanları doldu, şimdi 2026 yazı için harekete geç. Çalış, gez, kazan!
+                Amerika'da unutulmaz bir yaz seni bekliyor — çalış, gez, kazan!
               </p>
             </div>
 
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-bold text-base md:text-lg shadow-2xl animate-pulse mb-6">
               <span>🎯</span>
-              <span>Erken kayıt fırsatlarını kaçırma!</span>
+              <span>Kasım Ayına Özel Fırsatları Kaçırma</span>
             </div>
 
             {/* CTA Buttons */}
