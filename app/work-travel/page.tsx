@@ -42,16 +42,60 @@ export default function WorkTravelPage() {
     // On mobile, let the link work normally
   };
   const reasons = [
-    "2-4 ay Amerika'da çalışma fırsatı",
-    "1 ay seyahat izni ile ABD'yi keşfet",
-    "İngilizce pratiği ve dil gelişimi",
-    "Uluslararası iş deneyimi kazan",
-    "CV'ne değer kat",
-    "Farklı kültürlerden insanlarla tanış",
-    "Bağımsızlık ve özgüven kazan",
-    "Yeni arkadaşlıklar kur",
-    "Amerika'yı keşfet ve deneyimle",
-    "Çalışarak para kazan ve seyahat et"
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+      ),
+      title: "Uygun Fiyatla Amerika'ya Gidin",
+      description: "Alternatiflerine göre en uygun fiyatla Amerika'ya gidin, çalışın, eğlenin, gezin! Bu eşsiz deneyimi siz de yaşayın."
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+      ),
+      title: "İngilizcenizi Geliştirin",
+      description: "Amerikan kültürünü yakından tanıyın ve İngilizcenizi günlük hayatta kullanarak geliştirin!"
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+        </svg>
+      ),
+      title: "Kendi Paranızı Kazanın",
+      description: "Çalışarak kendi paranızı kazanın ve ucuz alışveriş imkanı yakalayın!"
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"/>
+        </svg>
+      ),
+      title: "Unutulmaz Dostluklar Edinin",
+      description: "Harika fotoğraf ve videolarla anılarınızı ölümsüzleştirin ve unutulmaz dostluklar edinin!"
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/>
+        </svg>
+      ),
+      title: "Harika Anılar Biriktirin",
+      description: "Amerika'yı keşfedin, eğlenin ve bu eşsiz deneyimi fotoğraf ve videolarla ölümsüzleştirin!"
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
+        </svg>
+      ),
+      title: "Kariyeriniz İçin Bağlantılar",
+      description: "Uluslararası iş deneyimi kazanın, CV'nize değer katın ve kariyeriniz için eşsiz bağlantılar edinin!"
+    }
   ];
 
   return (
@@ -132,14 +176,32 @@ export default function WorkTravelPage() {
                 Work and Travel her üniversite öğrencisinin en az bir kez yaşaması gereken eşsiz fırsatlarla dolu, unutulmayacak bir deneyimdir!
               </p>
 
-              <div className="space-y-2 mb-6">
+              {/* 3x2 Grid of Reason Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                 {reasons.map((reason, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-2 py-1.5 rounded-lg hover:bg-gray-50 transition-colors"
+                    className="group relative bg-white border-2 border-primary/20 rounded-2xl p-5 hover:border-primary hover:shadow-lg transition-all duration-300"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 text-sm">{reason}</span>
+                    {/* Icon */}
+                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mb-4 text-white group-hover:scale-110 transition-transform duration-300 shadow-md">
+                      {reason.icon}
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-base font-bold text-gray-900 mb-2 leading-tight">
+                      {reason.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-xs text-gray-600 leading-relaxed">
+                      {reason.description}
+                    </p>
+
+                    {/* Check Badge */}
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
+                      <CheckCircle2 className="w-4 h-4 text-white" />
+                    </div>
                   </div>
                 ))}
               </div>
