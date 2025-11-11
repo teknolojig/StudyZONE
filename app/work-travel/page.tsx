@@ -133,7 +133,7 @@ export default function WorkTravelPage() {
             </h1>
 
             {/* Subtitle */}
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6 text-primary drop-shadow-xl">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6 text-yellow-400 drop-shadow-xl">
               Kayıtlar Tüm Hızıyla Devam Ediyor!
             </h2>
 
