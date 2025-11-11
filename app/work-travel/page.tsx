@@ -10,7 +10,7 @@ import { Accreditations } from "@/components/work-travel/accreditations";
 import { DraggableCardContainer, DraggableCardBody } from "@/components/ui/draggable-card";
 import { CallNowModal } from "@/components/forms/call-now-modal";
 import { InfoFormModal } from "@/components/forms/info-form-modal";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Edit } from "lucide-react";
 
 export default function WorkTravelPage() {
   const [isCallNowModalOpen, setIsCallNowModalOpen] = useState(false);
@@ -147,16 +147,20 @@ export default function WorkTravelPage() {
               </p>
             </div>
 
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-bold text-base md:text-lg shadow-2xl animate-pulse mb-6">
+              <span>🎯</span>
+              <span>Erken kayıt fırsatlarını kaçırma!</span>
+            </div>
+
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
                 onClick={() => setIsFormModalOpen(true)}
                 className="group px-8 py-3.5 bg-white hover:bg-gray-50 text-primary font-bold text-base rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-white/50"
               >
                 <span className="flex items-center gap-2.5">
-                  <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm0 4c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1.4c0-2 4-3.1 6-3.1s6 1.1 6 3.1V19z"/>
-                  </svg>
+                  <Edit className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                   <span>BİLGİ AL</span>
                 </span>
               </button>
@@ -172,12 +176,6 @@ export default function WorkTravelPage() {
                   <span>HEMEN ARAYIN</span>
                 </span>
               </button>
-            </div>
-
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-bold text-base md:text-lg shadow-2xl animate-pulse">
-              <span>🎯</span>
-              <span>Erken kayıt fırsatlarını kaçırma!</span>
             </div>
           </div>
         </div>
