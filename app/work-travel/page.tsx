@@ -205,6 +205,19 @@ export default function WorkTravelPage() {
                   </div>
                 ))}
               </div>
+
+              {/* All Reasons Button */}
+              <div className="flex justify-center mt-6">
+                <a
+                  href="#form"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-white font-bold text-sm rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  <span>Tüm Nedenler</span>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
             </div>
 
             {/* Right Column - Form */}
