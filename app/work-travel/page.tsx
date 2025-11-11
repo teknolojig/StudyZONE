@@ -138,10 +138,7 @@ export default function WorkTravelPage() {
             </h2>
 
             {/* Description */}
-            <div className="space-y-3 text-base md:text-xl lg:text-2xl mb-8 drop-shadow-lg">
-              <p className="font-semibold">
-                Amerika seni bekliyor!
-              </p>
+            <div className="text-base md:text-xl lg:text-2xl mb-8 drop-shadow-lg">
               <p>
                 Amerika'da unutulmaz bir yaz seni bekliyor — çalış, gez, kazan!
               </p>
