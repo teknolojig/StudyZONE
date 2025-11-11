@@ -184,7 +184,7 @@ export default function WorkTravelPage() {
                     className="group relative bg-white border-2 border-primary/20 rounded-2xl p-5 hover:border-primary hover:shadow-lg transition-all duration-300"
                   >
                     {/* Icon */}
-                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mb-4 text-white group-hover:scale-110 transition-transform duration-300 shadow-md">
+                    <div className="w-14 h-14 bg-primary rounded-xl flex items-center justify-center mb-4 text-white group-hover:scale-110 transition-transform duration-300 shadow-md">
                       {reason.icon}
                     </div>
 
